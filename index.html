@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage</title>
+    <title>Pagina Principale</title>
     <style>
         /* Stile generale */
         body {
@@ -15,34 +15,44 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             text-align: center;
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 2rem; /* Dimensione del titolo ridotta per mobile */
             margin-bottom: 20px;
             color: #2c3e50; /* Blu scuro per il titolo */
+        }
+
+        /* Contenitore principale */
+        .content {
+            background: white; /* Sfondo bianco */
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            width: 90%; /* Larghezza relativa per adattarsi ai dispositivi mobili */
+            max-width: 400px; /* Larghezza massima per schermi più grandi */
         }
 
         /* Stile dei bottoni */
         .button-container {
             display: flex;
+            flex-direction: column; /* Bottoni in colonna per mobile */
             gap: 15px;
-            flex-wrap: wrap;
-            justify-content: center;
         }
 
         button {
             background-color: #3498db; /* Blu professionale */
             color: white;
-            padding: 15px 30px;
+            padding: 12px 24px;
             font-size: 1rem;
             border: none;
             border-radius: 8px; /* Bordi leggermente arrotondati */
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%; /* Larghezza piena per mobile */
         }
 
         button:hover {
@@ -55,18 +65,25 @@
             transform: translateY(0); /* Torna alla posizione originale */
         }
 
-        /* Effetto di trasparenza per il contenitore */
-        .content {
-            background: white; /* Sfondo bianco */
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        /* Media query per schermi più grandi */
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 2.5rem; /* Dimensione del titolo più grande per desktop */
+            }
+
+            .button-container {
+                flex-direction: row; /* Bottoni in riga per desktop */
+            }
+
+            button {
+                width: auto; /* Larghezza automatica per desktop */
+            }
         }
     </style>
 </head>
 <body>
     <div class="content">
-        <h1>Homepage</h1>
+        <h1>Home Page</h1>
         <div class="button-container">
             <!-- Bottone per aprire pagina1.html -->
             <button onclick="window.location.href='CPage1/Page1.html'">
@@ -74,13 +91,13 @@
             </button>
 
             <!-- Bottone per aprire pagina2.html -->
-            <button onclick="window.location.href='pagina2.html'">
-                ...
+            <button onclick="window.location.href='cartella-pagine/pagina2.html'">
+                Vai a Pagina 2
             </button>
 
             <!-- Bottone per aprire pagina3.html -->
-            <button onclick="window.location.href='pagina3.html'">
-                ...
+            <button onclick="window.location.href='cartella-pagine/pagina3.html'">
+                Vai a Pagina 3
             </button>
         </div>
     </div>
