@@ -14,6 +14,11 @@ document.addEventListener("DOMContentLoaded", () => {
         lastScrollY = window.scrollY;
     });
 
+    function toggleMenu() {
+        const nav = document.querySelector("nav ul");
+        nav.classList.toggle("active");
+    }
+    
     // Logica del carosello
     let currentIndex = 0;
 
