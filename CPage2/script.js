@@ -18,16 +18,19 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentIndex = 0;
 
     function showSlide(index) {
-        const slides = document.querySelectorAll(".carousel img");
-        if (index >= slides.length) {
+        const slides = document.querySelectorAll(".carousel a");
+        const totalSlides = slides.length;
+        const visibleSlides = 4;
+
+        if (index >= totalSlides - (visibleSlides - 1)) {
             currentIndex = 0;
         } else if (index < 0) {
-            currentIndex = slides.length - 1;
+            currentIndex = totalSlides - visibleSlides;
         } else {
             currentIndex = index;
         }
 
-        const offset = -currentIndex * 100 + "%";
+        const offset = -currentIndex * (100 / visibleSlides) + "%";
         document.querySelector(".carousel").style.transform = `translateX(${offset})`;
     }
 
@@ -39,5 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
         showSlide(currentIndex - 1);
     });
 
-    showSlide(currentIndex);
+    document.addEventListener("DOMContentLoaded", () => {
+        showSlide(currentIndex);
+    });
 });
