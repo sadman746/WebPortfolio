@@ -122,47 +122,66 @@ section {
 /* PORTFOLIO */
 #portfolio {
     position: relative;
-    max-width: 100%;
+    max-width: 90%;
     margin: 0 auto;
     overflow: hidden;
-}
-
-.carousel {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
-
-.carousel img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
 }
 
 .carousel-container {
     position: relative;
     width: 100%;
+    max-width: 1200px;
     overflow: hidden;
+    margin: auto;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.carousel a {
+    flex: 1 1 24%; /* Mostra 4 immagini per volta */
+    padding: 10px;
+    text-decoration: none;
+    transition: transform 0.3s ease-in-out;
+}
+
+.carousel a:hover {
+    transform: scale(1.05);
+}
+
+.carousel img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.carousel-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
 }
 
 .carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: #ff5252;
     color: white;
     border: none;
     cursor: pointer;
-    padding: 8px;
+    padding: 10px 20px;
     font-size: 16px;
-    border-radius: 5px;
+    border-radius: 50px;
+    transition: background 0.3s, transform 0.2s;
+    margin: 0 10px;
 }
 
-.prev {
-    left: 5px;
-}
-
-.next {
-    right: 5px;
+.carousel-btn:hover {
+    background-color: #ff7eb3;
+    transform: scale(1.1);
 }
 
 /* CHI SONO */
@@ -222,5 +241,8 @@ section {
     }
     nav ul li {
         padding: 5px 0;
+    }
+    .carousel a {
+        flex: 1 1 48%; /* Mostra 2 immagini per volta su mobile */
     }
 }
