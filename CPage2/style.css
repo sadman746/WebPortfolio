@@ -2,15 +2,15 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f5f5f5;
+    background: linear-gradient(135deg, #f8f9fa, #e3f2fd);
     color: #333;
     scroll-behavior: smooth;
 }
 
 /* HEADER */
 header {
-    background: linear-gradient(135deg, #222, #111);
-    color: white;
+    background: linear-gradient(135deg, #ffffff, #e3f2fd);
+    color: #333;
     padding: 15px;
     text-align: center;
     position: fixed;
@@ -19,6 +19,7 @@ header {
     left: 0;
     z-index: 1000;
     transition: transform 0.4s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 header.hidden {
@@ -39,14 +40,15 @@ nav ul li {
 }
 
 nav ul li a {
-    color: white;
+    color: #333;
     text-decoration: none;
     font-size: 18px;
     transition: color 0.3s;
+    font-weight: bold;
 }
 
 nav ul li a:hover {
-    color: #ffcc00;
+    color: #ff5252;
 }
 
 /* HOME - Sezione iniziale */
@@ -55,8 +57,8 @@ nav ul li a:hover {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background: linear-gradient(135deg, #ff7eb3, #ff758c, #ff5252);
-    color: white;
+    background: linear-gradient(135deg, #e3f2fd, #ffffff);
+    color: #333;
     text-align: center;
     padding: 50px;
 }
@@ -80,8 +82,8 @@ nav ul li a:hover {
 /* Pulsante moderno */
 .btn {
     display: inline-block;
-    background: white;
-    color: #ff5252;
+    background: #ff5252;
+    color: white;
     padding: 12px 24px;
     border-radius: 50px;
     font-weight: bold;
@@ -91,8 +93,7 @@ nav ul li a:hover {
 }
 
 .btn:hover {
-    background: #ffcccb;
-    color: #333;
+    background: #ff7eb3;
 }
 
 /* Animazione fade-in */
@@ -162,8 +163,8 @@ section {
 
 /* CHI SONO */
 #about {
-    background: linear-gradient(135deg, #ff5252, #ff758c);
-    color: white;
+    background: linear-gradient(135deg, #ffffff, #e3f2fd);
+    color: #333;
 }
 
 #about p {
@@ -176,8 +177,8 @@ section {
 
 /* CONTATTI */
 #contact {
-    background: #222;
-    color: white;
+    background: #ffffff;
+    color: #333;
 }
 
 #contact p {
@@ -189,7 +190,7 @@ section {
 }
 
 .contact-info a {
-    color: #ffcc00;
+    color: #ff5252;
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s;

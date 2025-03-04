@@ -4,43 +4,40 @@ document.addEventListener("DOMContentLoaded", () => {
     let lastScrollY = window.scrollY;
     const header = document.querySelector("header");
 
+    // Nasconde la navbar quando si scrolla in basso e la mostra quando si scrolla in alto
     window.addEventListener("scroll", () => {
         if (window.scrollY > lastScrollY) {
-            // Se stai scorrendo verso il basso, nasconde la navbar
             header.classList.add("hidden");
         } else {
-            // Se stai scorrendo verso l'alto, mostra la navbar
             header.classList.remove("hidden");
         }
         lastScrollY = window.scrollY;
     });
 
+    // Logica del carosello
     let currentIndex = 0;
 
     function showSlide(index) {
         const slides = document.querySelectorAll(".carousel img");
         if (index >= slides.length) {
-        currentIndex = 0;
+            currentIndex = 0;
         } else if (index < 0) {
-        currentIndex = slides.length - 1;
+            currentIndex = slides.length - 1;
         } else {
-        currentIndex = index;
+            currentIndex = index;
         }
 
-    const offset = -currentIndex * 100 + "%";
-    document.querySelector(".carousel").style.transform = `translateX(${offset})`;
+        const offset = -currentIndex * 100 + "%";
+        document.querySelector(".carousel").style.transform = `translateX(${offset})`;
     }
 
-    function nextSlide() {
+    document.querySelector(".next").addEventListener("click", () => {
         showSlide(currentIndex + 1);
-    }
-
-    function prevSlide() {
-        showSlide(currentIndex - 1);
-    }
-
-// Avvia il carosello con la prima immagine visibile
-    document.addEventListener("DOMContentLoaded", () => {
-        showSlide(currentIndex);
     });
+
+    document.querySelector(".prev").addEventListener("click", () => {
+        showSlide(currentIndex - 1);
+    });
+
+    showSlide(currentIndex);
 });
