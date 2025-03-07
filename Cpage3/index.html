@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Il Mio Sito</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <!-- Header con navigazione -->
+    <nav>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#about">Chi Sono</a></li>
+        <li><a href="#contact">Contatti</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <!-- Wrapper che contiene la home e il portfolio -->
+  <div class="wrapper">
+    <!-- Sezione Hero -->
+    <section class="hero" id="hero">
+      <div class="hero-content">
+        <h1>Nunzia Ascolese</h1>
+      </div>
+    </section>
+    
+    <!-- Sezione Portfolio (senza la scritta "Opere") -->
+    <section id="portfolio">
+      <div class="portfolio-gallery">
+        <div class="portfolio-item">
+          <img src="images/opera1.jpg" alt="Progetto 1">
+          <div class="portfolio-description">
+            <h3>Titolo Progetto 1</h3>
+            <p>Descrizione breve del progetto.</p>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <img src="images/opera2.JPG" alt="Progetto 2">
+          <div class="portfolio-description">
+            <h3>Titolo Progetto 2</h3>
+            <p>Descrizione breve del progetto.</p>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <img src="images/opera3.jpg" alt="Progetto 3">
+          <div class="portfolio-description">
+            <h3>Titolo Progetto 3</h3>
+            <p>Descrizione breve del progetto.</p>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <img src="images/opera4.jpeg" alt="Progetto 4">
+          <div class="portfolio-description">
+            <h3>Titolo Progetto 4</h3>
+            <p>Descrizione breve del progetto.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+  <!-- Sezioni aggiuntive (ad es. About e Contatti) -->
+  <section id="about">
+    <h2>Chi Sono</h2>
+    <p>Informazioni sulla tua biografia o descrizione personale.</p>
+  </section>
+  
+  <section id="contact">
+    <h2>Contatti</h2>
+    <form action="send.php" method="post">
+      <label for="name">Nome</label>
+      <input type="text" id="name" name="name">
+      
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email">
+      
+      <label for="message">Messaggio</label>
+      <textarea id="message" name="message"></textarea>
+      
+      <button type="submit">Invia</button>
+    </form>
+  </section>
+  
+  <!-- Script per l'animazione della sezione portfolio -->
+  <script>
+    window.addEventListener('scroll', function() {
+      var portfolio = document.getElementById('portfolio');
+      var scrollY = window.scrollY;
+      var viewportHeight = window.innerHeight;
+      // Calcola il progresso dallo scroll, da 0 a 1 (fino a 100vh)
+      var progress = Math.min(1, scrollY / viewportHeight);
+      // Quando scrollY raggiunge l'altezza della viewport, il portfolio si sposta di -100vh
+      portfolio.style.transform = 'translateY(' + (-progress * 100) + 'vh)';
+    });
+  </script>
+</body>
+</html>
