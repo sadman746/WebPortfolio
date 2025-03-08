@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Il Mio Sito</title>
+  <title>Nunzia Ascolese</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <div class="page-wrapper">
   <header>
     <!-- Header con navigazione -->
     <nav>
       <ul>
-        <li><a href="#hero">Home</a></li>
         <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#about">Chi Sono</a></li>
+        <li><a href="chi-sono.html">Chi Sono</a></li>
         <li><a href="#contact">Contatti</a></li>
       </ul>
     </nav>
   </header>
-  
+  <main>
   <!-- Wrapper che contiene la home e il portfolio -->
   <div class="wrapper">
     <!-- Sezione Hero -->
@@ -32,59 +33,86 @@
     <section id="portfolio">
       <div class="portfolio-gallery">
         <div class="portfolio-item">
-          <img src="images/opera1.jpg" alt="Progetto 1">
+          <img src="images/opera8.jpg" alt="Progetto 8">
           <div class="portfolio-description">
-            <h3>Titolo Progetto 1</h3>
+            <h3>SOTTO IL NASO</h3>
+            <p>Anno: 2025
+              Dimensioni variabili dallo spazio, lamina 20x20 cm, naso 15x7x5 cm
+              Materiali: Alluminio
+
+              L’installazione nasce da un’indagine critica sul rapporto tra abitante e il territorio vesuviano,
+              maturata attraverso un'esperienza diretta sul luogo.</p>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <img src="images/opera7.jpeg" alt="Progetto 7">
+          <div class="portfolio-description">
+            <h3>SI DISSOLVE LA REALTÀ NEL SONNO LEGGERO</h3>
+            <p>Anno: 2024
+              Dimensioni: 130x46x46cm
+              Materiali: Argilla cotta, ottone e legno
+            
+              Il progetto è un’installazione site-specific realizzata per il Premio Generazioni Art Days
+              quarta edizione: La foresta di fili. Ispirato alla fiaba La Pulce di Giambattista Basile, parte
+              della celebre raccolta Lo cunto de li cunti.</p>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <img src="images/opera6.jpg" alt="Progetto 6">
+          <div class="portfolio-description">
+            <h3>ACCECATO DAL DESIDERIO DIMENTICO CHI ERAVAMO</h3>
             <p>Descrizione breve del progetto.</p>
           </div>
         </div>
         <div class="portfolio-item">
-          <img src="images/opera2.JPG" alt="Progetto 2">
+          <img src="images/opera5.jpeg" alt="Progetto 5">
           <div class="portfolio-description">
-            <h3>Titolo Progetto 2</h3>
+            <h3>ABITARE IL CONFINE</h3>
+            <p>Anno: 2024
+              Dimensioni: 25X16X15cm
+              Materiali: Marmo e Paraffina</p>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <img src="images/opera4.png" alt="Progetto 4">
+          <div class="portfolio-description">
+            <h3>QUESTA TERRA NON MI APPARTIENE</h3>
             <p>Descrizione breve del progetto.</p>
           </div>
         </div>
         <div class="portfolio-item">
           <img src="images/opera3.jpg" alt="Progetto 3">
           <div class="portfolio-description">
-            <h3>Titolo Progetto 3</h3>
+            <h3>UNA VOLTA ERO 6756</h3>
             <p>Descrizione breve del progetto.</p>
           </div>
         </div>
         <div class="portfolio-item">
-          <img src="images/opera4.jpeg" alt="Progetto 4">
+          <video controls autoplay loop muted playsinline>
+            <source src="images/video2.mp4" type="video/mp4">
+            Il tuo browser non supporta il video.
+          </video>
           <div class="portfolio-description">
-            <h3>Titolo Progetto 4</h3>
+            <h3>NORD, SUD, OVEST ED EST: QUAL È LA DIREZIONE GIUSTA QUANDO PERDI LA STRADA</h3>
+            <p>Descrizione breve del progetto.</p>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <img src="images/opera1.jpg" alt="Progetto 1">
+          <div class="portfolio-description">
+            <h3>SOLO UN SASSO</h3>
             <p>Descrizione breve del progetto.</p>
           </div>
         </div>
       </div>
     </section>
   </div>
-  
-  <!-- Sezioni aggiuntive (ad es. About e Contatti) -->
-  <section id="about">
-    <h2>Chi Sono</h2>
-    <p>Informazioni sulla tua biografia o descrizione personale.</p>
-  </section>
-  
-  <section id="contact">
-    <h2>Contatti</h2>
-    <form action="send.php" method="post">
-      <label for="name">Nome</label>
-      <input type="text" id="name" name="name">
-      
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email">
-      
-      <label for="message">Messaggio</label>
-      <textarea id="message" name="message"></textarea>
-      
-      <button type="submit">Invia</button>
-    </form>
-  </section>
-  
+</div>
+</main>
+    <div class="spacer"></div>
+    <footer>
+      <p>&copy; 2025 Nunzia Ascolese</p>
+    </footer>
   <!-- Script per l'animazione della sezione portfolio -->
   <script>
     window.addEventListener('scroll', function() {

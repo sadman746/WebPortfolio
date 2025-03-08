@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chi Sono - Nunzia Ascolese</title>
+  <!-- Manteniamo lo stesso font e stile -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="chi-sono">
+  <div class="page-wrapper">
+    <header>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#contact">Contatti</a></li>
+        </ul>
+      </nav>
+    </header>
+    
+    <main class="cv-page">
+      <!-- Sezione introduttiva -->
+      <section class="cv-header">
+        <h1>Nunzia Ascolese</h1>
+        <p>Artista visiva | Scultrice | Installatrice</p>
+      </section>
+      
+      <!-- Layout a due colonne per informazioni e percorso -->
+      <section class="cv-content">
+        <div class="cv-left">
+          <h2>Informazioni personali</h2>
+          <p>
+            Nunzia Ascolese è un’artista italiana che opera nel campo delle arti visive.
+            Nasce a Napoli nel 2000 e cresce a San Giuseppe Vesuviano, un territorio che ha influenzato profondamente la sua ricerca artistica.
+            Nel 2019 si iscrive all’Accademia di Belle Arti di Napoli, dove ha approfondito la sua formazione, sviluppando una pratica artistica che spazia dalla scultura a installazioni e performance.
+            <br><br>
+            La sua arte si concentra su temi legati al paesaggio, all’abusivismo e alle dinamiche sociali ed ecologiche dei territori in trasformazione.
+            Attraverso il suo lavoro, Nunzia esplora il rapporto tra natura e urbanizzazione, cercando di dare voce a ciò che è marginalizzato e dimenticato, portando alla luce la complessità delle relazioni umane e ambientali.
+            <br><br>
+            Le sue realizzazioni, che spesso utilizzano materiali simbolici e fortemente espressivi, invitano il pubblico a riflettere sulla memoria collettiva, sulla sostenibilità e sulle sfide della contemporaneità.
+          </p>
+          <h2>Contatti</h2>
+          <p>Email: nunzia@example.com</p>
+          <p>Sito Web: www.nunziascolese.com</p>
+        </div>
+        
+        <div class="cv-right">
+          <h2>Esperienze e Formazione</h2>
+          <div class="cv-item">
+            <h3>2019 - 2023</h3>
+            <p>Accademia di Belle Arti di Napoli<br>Laurea in Arti Visive</p>
+          </div>
+          <div class="cv-item">
+            <h3>2024</h3>
+            <p>Prima mostra personale<br>Mostra "Titolo Mostra" a [luogo]</p>
+          </div>
+          <div class="cv-item">
+            <h3>2025</h3>
+            <p>Progetto "Sotto il Naso"<br>Installazione e scultura</p>
+          </div>
+          <!-- Aggiungi altri elementi del percorso se necessario -->
+        </div>
+      </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Nunzia Ascolese</p>
+        <div class="social-icons">
+          <a href="https://facebook.com/tuoaccount" target="_blank" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://twitter.com/tuoaccount" target="_blank" aria-label="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="https://www.instagram.com/nunziaascolese/" target="_blank" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://linkedin.com/in/tuoaccount" target="_blank" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+        </div>
+      </footer>
+  </div>
+
+  <script>
+    document.addEventListener('scroll', function () {
+  const headerNav = document.querySelector('header nav');
+  const chiSonoSection = document.querySelector('.chi-sono');
+
+  if (chiSonoSection && window.scrollY > chiSonoSection.offsetTop) {
+    headerNav.classList.add('nav-hidden');
+  } else {
+    headerNav.classList.remove('nav-hidden');
+  }
+});
+  </script>
+  
+</body>
+</html>
+
