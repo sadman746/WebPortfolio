@@ -27,8 +27,8 @@ header {
   z-index: 100;
 }
 
-header nav {
-  transition: transform 0.3s ease-in-out;
+header nav a:hover {
+  color: #606060;
 }
 
 header nav ul {
@@ -44,39 +44,13 @@ header nav ul {
 header nav ul li {
   margin: 0 15px; /* Spazio tra gli elementi */
 }
-
+/*colore navbar home*/
 header nav ul li a {
   color: #fff;
   text-decoration: none;
   font-size: 16px;
 }
 
-.nav-hidden {
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-body.chi-sono header nav ul li a {
-  color: #000;
-  text-decoration: none;
-  font-size: 16px;
-}
-
-/* Aggiungi questo al CSS, preferibilmente nella sezione specifica per la pagina chi-sono */
-body.chi-sono header {
-  transition: top 0.3s ease-in-out;
-}
-
-/* Classe da aggiungere per nascondere la navbar */
-.nav-hidden {
-  transform: translateY(-100%);
-  opacity: 0;
-}
-
-body.chi-sono header nav ul li a {
-  color: #000000; /* Imposta il colore nero per i link */
-}
 
 /* Sezione Hero con immagine a tutto schermo sfocata */
 .hero {
@@ -89,8 +63,8 @@ body.chi-sono header nav ul li a {
 .hero::before {
   content: "";
   background: url('../images/bgHome.jpg') no-repeat center center/cover;
-  -webkit-filter: blur(5px);
-  filter: blur(5px);
+  /*-webkit-filter: blur(5px);
+  filter: blur(5px);*/
   transform: scale(1.1);
   position: absolute;
   top: 0;
@@ -100,20 +74,17 @@ body.chi-sono header nav ul li a {
   z-index: -1;
 }
 
-.hero .hero-content h1 {
-  font-size: 4em;            /* Aumenta la dimensione del testo */
-  color: #ffffff;            /* Colore più visibile, modificabile a tuo piacimento */
-  text-shadow: 2px 2px 5px rgb(0, 0, 0); /* Aggiunge ombra per migliorare la leggibilità */
-}
-
 /* Posizionamento del testo nel hero */
 .hero .hero-content {
+  /*font-family: 'Inter', sans-serif !important; /* Cambia il font */
+  font-size: 4em;            /* Aumenta la dimensione del testo */
   position: absolute;
   top: 50%;
   right: 10%;  /* Sposta il testo verso destra */
   transform: translateY(-50%);
   text-align: right;
   color: #fff;
+  text-shadow: 1px 1px 1px rgb(0, 0, 0); /* Aggiunge ombra per migliorare la leggibilità */
 }
 
 /* Sezioni generiche */
@@ -183,20 +154,19 @@ section {
   }
 }
 
-/* L'immagine copre interamente l'area del quadrato */
+/* gestione immagini nel portfolio */
 .portfolio-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-
+/*gestione video nel portfolio*/
 .portfolio-item video {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-/* (Opzionale) Overlay per la descrizione, visibile al passaggio del mouse */
 /* Overlay per titolo e descrizione che occupa tutto il quadrato */
 .portfolio-description {
   position: absolute;
@@ -223,62 +193,5 @@ section {
 .portfolio-description p {
   white-space: pre-wrap;
   font-size: 0.9em
-}
-
-/* Sezione Chi Sono */
-.about-content p {
-  white-space: pre-wrap;
-}
-
-.about-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.about-content img {
-  width: 150px;
-  border-radius: 50%;
-  margin-bottom: 20px;
-}
-
-/* Stili per il form dei contatti */
-form {
-  max-width: 500px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-}
-
-form label {
-  margin: 10px 0 5px;
-}
-
-form input, form textarea {
-  padding: 10px;
-  font-size: 14px;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-form button {
-  margin-top: 15px;
-  padding: 10px;
-  font-size: 16px;
-  background: #333;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-}
-
-/* Footer */
-footer {
-  z-index: 3;
-  background: #111111;
-  color: #fff;
-  padding: 20px 0;
-  text-align: center;
-  margin-top: auto; /* Assicura che il footer sia spinto in fondo alla pagina */
 }
 

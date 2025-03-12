@@ -1,0 +1,145 @@
+/* Impostazioni di base */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #fff;
+    color: #333;
+}
+
+/* Header trasparente */
+header {
+    background: transparent;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    top: 10%;
+    z-index: 100;
+}
+
+header nav a:hover {
+    color: #cac9c9;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row; /* Disposizione orizzontale */
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    margin: 0 15px; /* Spazio tra gli elementi */
+}
+
+/* Colore navbar home */
+header nav ul li a {
+    color: #000000;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+/* Sezione Hero */
+.hero {
+    position: relative;
+    max-width: 1200px;
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+}
+
+/* Div contenente il testo */
+.hero-text {
+    color: black;
+    position: relative;
+    padding: 50px;
+    background: transparent;  /* Fondo trasparente */
+    margin-right: -300px;      /* Sovrapposizione parziale sul div a destra */
+    z-index: 2;
+}
+
+.hero-text h1 {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+}
+
+.hero-text p {
+    line-height: 1.3;
+    margin-bottom: 20px;
+    font-size: 0.8rem;
+}
+
+/* Div con immagine di sfondo */
+.hero-bg {
+    position: relative;
+    width: 100%;
+    min-height: 450px;
+    background-image: url('../images/cv.jpeg'); /* Percorso della tua immagine */
+    background-repeat: no-repeat;
+    background-size: 100%; /* Copre il contenitore senza ritagliarlo */
+    background-position: center;
+}
+
+/* Nuova sezione aggiuntiva */
+.additional-section {
+    text-align: left;
+    padding: 40px 20px;
+}
+
+.additional-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.additional-section h2 {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.additional-section p {
+    line-height: 1.2;
+}
+
+/* Responsive: layout a colonna singola per dispositivi piccoli */
+@media (max-width: 768px) {
+    /* Adattamento della griglia */
+    .hero {
+        grid-template-columns: 1fr;
+        margin: 20px;
+    }
+    
+    /* Testo: rimuovo il margin-right negativo, riduco padding e font-size */
+    .hero-text {
+        margin-right: 0;
+        background: rgba(255, 255, 255, 1);
+        padding: 20px;
+    }
+    
+    .hero-text h1 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+    }
+    
+    .hero-text p {
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+    }
+    
+    /* Immagine: regolo l'altezza per dispositivi mobili */
+    .hero-bg {
+        min-height: 250px;
+    }
+    
+    /* Header: eventualmente riduci il top per adattarsi meglio allo schermo */
+    header {
+        top: 5%;
+    }
+    
+    /* Nuova sezione: aumenta leggermente i margini per migliore lettura */
+    .additional-section {
+        padding: 30px 10px;
+    }
+}

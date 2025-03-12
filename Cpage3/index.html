@@ -2,6 +2,7 @@
 <html lang="it">
 <head>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nunzia Ascolese</title>
@@ -11,7 +12,7 @@
   <div class="page-wrapper">
   <header>
     <!-- Header con navigazione -->
-    <nav>
+    <nav id="side-nav">
       <ul>
         <li><a href="#portfolio">Portfolio</a></li>
         <li><a href="chi-sono.html">Chi Sono</a></li>
@@ -25,7 +26,7 @@
     <!-- Sezione Hero -->
     <section class="hero" id="hero">
       <div class="hero-content">
-        <h1>Nunzia Ascolese</h1>
+        <p>Nunzia Ascolese</p>
       </div>
     </section>
     
@@ -109,21 +110,34 @@
   </div>
 </div>
 </main>
-    <div class="spacer"></div>
     <footer>
       <p>&copy; 2025 Nunzia Ascolese</p>
     </footer>
   <!-- Script per l'animazione della sezione portfolio -->
   <script>
-    window.addEventListener('scroll', function() {
-      var portfolio = document.getElementById('portfolio');
-      var scrollY = window.scrollY;
-      var viewportHeight = window.innerHeight;
-      // Calcola il progresso dallo scroll, da 0 a 1 (fino a 100vh)
-      var progress = Math.min(1, scrollY / viewportHeight);
-      // Quando scrollY raggiunge l'altezza della viewport, il portfolio si sposta di -100vh
-      portfolio.style.transform = 'translateY(' + (-progress * 100) + 'vh)';
+    document.addEventListener("DOMContentLoaded", function() {
+      let lastScrollPos = 0;
+      let ticking = false;
+      const portfolio = document.getElementById('portfolio');
+      
+      function updatePortfolio() {
+        const viewportHeight = window.innerHeight;
+        // Calcola il progresso: se scrollY raggiunge viewportHeight, progress sarà 1 (ovvero 100%)
+        const progress = Math.min(1, lastScrollPos / viewportHeight);
+        // Applica la trasformazione usando translate3d per sfruttare l'accelerazione hardware
+        portfolio.style.transform = 'translate3d(0, ' + (-progress * 100) + 'vh, 0)';
+        ticking = false;
+      }
+      
+      window.addEventListener('scroll', function() {
+        lastScrollPos = window.pageYOffset;
+        if (!ticking) {
+          window.requestAnimationFrame(updatePortfolio);
+          ticking = true;
+        }
+      });
     });
-  </script>
+    </script>
+
 </body>
 </html>
