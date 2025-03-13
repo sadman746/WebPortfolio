@@ -1,2 +1,2 @@
-# sadman746.github.io
+# sadman.it
 Website for test
