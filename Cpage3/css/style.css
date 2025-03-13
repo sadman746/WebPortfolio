@@ -6,17 +6,6 @@ body, html {
   font-family: 'Montserrat', sans-serif;
 }
 
-/* Nuovo wrapper che contiene header, contenuto e footer */
-.page-wrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-/* L'elemento principale si espande per occupare lo spazio disponibile */
-main {
-  flex: 1;
-}
-
 /* Header trasparente */
 header {
   background: transparent;
@@ -51,27 +40,25 @@ header nav ul li a {
   font-size: 16px;
 }
 
-
-/* Sezione Hero con immagine a tutto schermo sfocata */
+/* Blocca hero fissato in background */
 .hero {
-  position: relative;
-  height: 100vh;
-  overflow: hidden;
-}
-
-/* Pseudo-elemento per l'immagine di sfondo sfocata */
-.hero::before {
-  content: "";
-  background: url('../images/bgHome.webp') no-repeat center center/cover;
-  /*-webkit-filter: blur(5px);
-  filter: blur(5px);*/
+  background: url('../images/bgHome.jpg') no-repeat center center/cover;
   transform: scale(1.1);
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: -1;
+  width: 100%;
+  height: 100vh;
+  z-index: 0;
+  will-change: transform, filter; /* Suggerisce al browser di ottimizzare queste proprietà */
+  transition: transform 0.2s ease-out, filter 0.2s ease-out;
+}
+
+/* Contenuto principale (portfolio e footer) che scorre sopra il blocco hero */
+.wrapper {
+  position: relative;
+  z-index: 1;
+  margin-top: 100vh;
 }
 
 /* Posizionamento del testo nel hero */
@@ -87,39 +74,7 @@ header nav ul li a {
   text-shadow: 1px 1px 1px rgb(0, 0, 0); /* Aggiunge ombra per migliorare la leggibilità */
 }
 
-/* Sezioni generiche */
-section {
-  padding: 60px 20px;
-  text-align: center;
-}
-
 /* Stili per la galleria portfolio */
-
-/* Contenitore che racchiude la hero e il portfolio */
-.wrapper {
-  position: relative;
-  /* Due volte l'altezza della viewport per permettere lo scroll */
-}
-
-/* Sezione Home */
-.hero {
-  height: 100vh;
-}
-
-/* Sezione Portfolio: inizialmente posizionata sotto la hero */
-#portfolio {
-  position: absolute;
-  top: 100vh;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  z-index: 2;
-  transform: translate3d(0, 0, 0);
-  will-change: transform;
-  scroll-margin-top: 350px;
-  transition: transform 0.1s ease-out;
-  
-}
 
 /* Rimuovi eventuali margini e padding dalla sezione per un effetto full-bleed */
 #portfolio {
@@ -143,6 +98,7 @@ section {
   width: 100%;
   aspect-ratio: 1 / 1; /* Mantiene il quadrato */
   overflow: hidden;
+  background-color: #ffffff;
 }
 
 @media (max-width: 768px) {
@@ -192,6 +148,19 @@ section {
 
 .portfolio-description p {
   white-space: pre-wrap;
-  font-size: 0.9em
+  font-size: 0.9em;
 }
 
+footer {
+  background-color: #222; /* Sfondo scuro */
+  color: #fff;            /* Testo bianco */
+  text-align: center;     /* Centra il contenuto */
+  padding: 20px 0;        /* Spazio sopra e sotto */
+  font-size: 0.9em;       /* Dimensione del testo leggermente più piccola */
+  position: relative;
+  z-index: 1;
+}
+
+footer p {
+  margin: 0;              /* Rimuove il margine di default */
+}

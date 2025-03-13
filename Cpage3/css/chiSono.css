@@ -77,7 +77,7 @@ header nav ul li a {
     position: relative;
     width: 100%;
     min-height: 450px;
-    background-image: url('../images/cv.webp'); /* Percorso della tua immagine */
+    background-image: url('../images/cv.jpeg'); /* Percorso della tua immagine */
     background-repeat: no-repeat;
     background-size: 100%; /* Copre il contenitore senza ritagliarlo */
     background-position: center;

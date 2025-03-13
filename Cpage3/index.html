@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <div class="page-wrapper">
+  <div>
   <header>
     <!-- Header con navigazione -->
     <nav id="side-nav">
@@ -21,20 +21,20 @@
     </nav>
   </header>
   <main>
-  <!-- Wrapper che contiene la home e il portfolio -->
-  <div class="wrapper">
     <!-- Sezione Hero -->
     <section class="hero" id="hero">
       <div class="hero-content">
         <p>Nunzia Ascolese</p>
       </div>
     </section>
+    <!-- Wrapper che contiene la home e il portfolio -->
+  <div class="wrapper">
     
     <!-- Sezione Portfolio (senza la scritta "Opere") -->
     <section id="portfolio">
       <div class="portfolio-gallery">
         <div class="portfolio-item">
-          <img src="images/opera8.webp" alt="Progetto 8">
+          <img src="images/opera8.jpg" alt="Progetto 8">
           <div class="portfolio-description">
             <h3>SOTTO IL NASO</h3>
             <p>Anno: 2025
@@ -46,7 +46,7 @@
           </div>
         </div>
         <div class="portfolio-item">
-          <img src="images/opera7.webp" alt="Progetto 7">
+          <img src="images/opera7.jpeg" alt="Progetto 7">
           <div class="portfolio-description">
             <h3>SI DISSOLVE LA REALTÀ NEL SONNO LEGGERO</h3>
             <p>Anno: 2024
@@ -59,14 +59,14 @@
           </div>
         </div>
         <div class="portfolio-item">
-          <img src="images/opera6.webp" alt="Progetto 6">
+          <img src="images/opera6.jpg" alt="Progetto 6">
           <div class="portfolio-description">
             <h3>ACCECATO DAL DESIDERIO DIMENTICO CHI ERAVAMO</h3>
             <p>Descrizione breve del progetto.</p>
           </div>
         </div>
         <div class="portfolio-item">
-          <img src="images/opera5.webp" alt="Progetto 5">
+          <img src="images/opera5.jpeg" alt="Progetto 5">
           <div class="portfolio-description">
             <h3>ABITARE IL CONFINE</h3>
             <p>Anno: 2024
@@ -75,21 +75,21 @@
           </div>
         </div>
         <div class="portfolio-item">
-          <img src="images/opera4.webp" alt="Progetto 4">
+          <img src="images/opera4.png" alt="Progetto 4">
           <div class="portfolio-description">
             <h3>QUESTA TERRA NON MI APPARTIENE</h3>
             <p>Descrizione breve del progetto.</p>
           </div>
         </div>
         <div class="portfolio-item">
-          <img src="images/opera3.webp" alt="Progetto 3">
+          <img src="images/opera3.jpg" alt="Progetto 3">
           <div class="portfolio-description">
             <h3>UNA VOLTA ERO 6756</h3>
             <p>Descrizione breve del progetto.</p>
           </div>
         </div>
         <div class="portfolio-item">
-          <video controls autoplay loop muted playsinline>
+          <video autoplay loop muted playsinline controls>
             <source src="images/video2.mp4" type="video/mp4">
             Il tuo browser non supporta il video.
           </video>
@@ -99,7 +99,7 @@
           </div>
         </div>
         <div class="portfolio-item">
-          <img src="images/opera1.webp" alt="Progetto 1">
+          <img src="images/opera1.jpg" alt="Progetto 1">
           <div class="portfolio-description">
             <h3>SOLO UN SASSO</h3>
             <p>Descrizione breve del progetto.</p>
@@ -114,30 +114,7 @@
       <p>&copy; 2025 Nunzia Ascolese</p>
     </footer>
   <!-- Script per l'animazione della sezione portfolio -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      let lastScrollPos = 0;
-      let ticking = false;
-      const portfolio = document.getElementById('portfolio');
-      
-      function updatePortfolio() {
-        const viewportHeight = window.innerHeight;
-        // Calcola il progresso: se scrollY raggiunge viewportHeight, progress sarà 1 (ovvero 100%)
-        const progress = Math.min(1, lastScrollPos / viewportHeight);
-        // Applica la trasformazione usando translate3d per sfruttare l'accelerazione hardware
-        portfolio.style.transform = 'translate3d(0, ' + (-progress * 100) + 'vh, 0)';
-        ticking = false;
-      }
-      
-      window.addEventListener('scroll', function() {
-        lastScrollPos = window.pageYOffset;
-        if (!ticking) {
-          window.requestAnimationFrame(updatePortfolio);
-          ticking = true;
-        }
-      });
-    });
-    </script>
+  <script src="js/main.js" defer></script>
 
 </body>
 </html>
