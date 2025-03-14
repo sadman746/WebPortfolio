@@ -97,11 +97,10 @@ header nav ul li a.active::after {
 
 /* Media Query per dispositivi mobili */
 @media (max-width: 768px) {
-  .social-media,
   .header-icons {
     display: none;
   }
-  
+
   /* Posiziona l'header in alto */
   header {
     top: 0;
