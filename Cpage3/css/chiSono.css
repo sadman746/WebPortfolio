@@ -33,12 +33,35 @@ header nav ul li {
     margin: 0 15px; /* Spazio tra gli elementi */
 }
 
-/* Colore navbar home */
-header nav ul li a {
+nav ul li a {
     color: #000000;
     text-decoration: none;
-    font-size: 16px;
-}
+    padding: 10px 15px;
+    position: relative;
+    transition: color 0.3s;
+  }
+  
+  /* Pseudo-elemento per la linea sottostante */
+  nav ul li a::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: #000000;
+    transition: width 0.3s ease;
+  }
+  
+  /* Al passaggio del mouse, la linea si estende */
+  nav ul li a:hover::after {
+    width: 100%;
+  }
+  
+  /* Se il link è attivo, la linea è già estesa */
+  nav ul li a.active::after {
+    width: 100%;
+  }
 
 /* Sezione Hero */
 .hero {
@@ -77,7 +100,7 @@ header nav ul li a {
     position: relative;
     width: 100%;
     min-height: 450px;
-    background-image: url('../images/cv.jpeg'); /* Percorso della tua immagine */
+    background-image: url('https://res.cloudinary.com/dwcqqyaym/image/upload/f_auto,q_auto/v1741904867/cv_e6zhpr.jpg'); /* Percorso della tua immagine */
     background-repeat: no-repeat;
     background-size: 100%; /* Copre il contenitore senza ritagliarlo */
     background-position: center;
@@ -143,3 +166,17 @@ header nav ul li a {
         padding: 30px 10px;
     }
 }
+
+footer {
+    background-color: #000000; /* Sfondo scuro */
+    color: #fff;            /* Testo bianco */
+    text-align: center;     /* Centra il contenuto */
+    padding: 20px 0;        /* Spazio sopra e sotto */
+    font-size: 0.9em;       /* Dimensione del testo leggermente più piccola */
+    position: relative;
+    
+  }
+  
+  footer p {
+    margin: 0;              /* Rimuove il margine di default */
+  }

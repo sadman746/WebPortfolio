@@ -33,16 +33,40 @@ header nav ul {
 header nav ul li {
   margin: 0 15px; /* Spazio tra gli elementi */
 }
-/*colore navbar home*/
-header nav ul li a {
+
+nav ul li a {
   color: #fff;
   text-decoration: none;
-  font-size: 16px;
+  padding: 10px 15px;
+  position: relative;
+  transition: color 0.3s;
+}
+
+/* Pseudo-elemento per la linea sottostante */
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: #fff;
+  transition: width 0.3s ease;
+}
+
+/* Al passaggio del mouse, la linea si estende */
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+/* Se il link è attivo, la linea è già estesa */
+nav ul li a.active::after {
+  width: 100%;
 }
 
 /* Blocca hero fissato in background */
 .hero {
-  background: url('../images/bgHome.jpg') no-repeat center center/cover;
+  background: url('https://res.cloudinary.com/dwcqqyaym/image/upload/f_auto,q_auto/v1741904869/bgHome_roi0si.jpg') no-repeat center center/cover;
   transform: scale(1.1);
   position: fixed;
   top: 0;
@@ -152,7 +176,7 @@ header nav ul li a {
 }
 
 footer {
-  background-color: #222; /* Sfondo scuro */
+  background-color: #000000; /* Sfondo scuro */
   color: #fff;            /* Testo bianco */
   text-align: center;     /* Centra il contenuto */
   padding: 20px 0;        /* Spazio sopra e sotto */
