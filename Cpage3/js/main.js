@@ -23,3 +23,24 @@ window.addEventListener('scroll', () => {
     ticking = true;
   }
 }, { passive: true });
+
+//icone social visibili solo su hero 
+
+window.addEventListener('scroll', () => {
+  const hero = document.querySelector('.hero');
+  const headerIcons = document.querySelector('.header-icons');
+  if (!hero || !headerIcons) return;
+  
+  // Recupera l'altezza della hero
+  const heroHeight = hero.offsetHeight;
+  
+  // Se l'utente ha scrollato meno del 90% dell'altezza della hero, mostra le icone,
+  // altrimenti nascondile.
+  if (window.scrollY < heroHeight * 0.8) {
+    headerIcons.style.opacity = '1';
+    headerIcons.style.visibility = 'visible';
+  } else {
+    headerIcons.style.opacity = '0';
+    headerIcons.style.visibility = 'hidden';
+  }
+});

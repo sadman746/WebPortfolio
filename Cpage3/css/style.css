@@ -6,35 +6,41 @@ body, html {
   font-family: 'Montserrat', sans-serif;
 }
 
-/* Header trasparente */
+/* Header base */
+
 header {
-  background: transparent;
-  padding: 10px 0;
+  font-size: 1.1em;
   position: fixed;
   width: 100%;
   top: 10%;
+  background: transparent;
   z-index: 100;
+  padding: 10px 0;
 }
 
-header nav a:hover {
-  color: #606060;
+/* Contenitore interno che allinea navbar e icone */
+.header-container {
+  max-width: 100%;
+  margin: 0 20px;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
+/* Navbar */
 header nav ul {
   list-style: none;
   display: flex;
-  flex-direction: row; /* Disposizione orizzontale */
-  top: 10%;
-  left: 0;
   margin: 0;
   padding: 0;
 }
 
 header nav ul li {
-  margin: 0 15px; /* Spazio tra gli elementi */
+  margin: 0 10px;
 }
 
-nav ul li a {
+header nav ul li a {
   color: #fff;
   text-decoration: none;
   padding: 10px 15px;
@@ -43,7 +49,7 @@ nav ul li a {
 }
 
 /* Pseudo-elemento per la linea sottostante */
-nav ul li a::after {
+header nav ul li a::after {
   content: "";
   position: absolute;
   top: 50%;
@@ -52,16 +58,77 @@ nav ul li a::after {
   height: 1px;
   background-color: #fff;
   transition: width 0.3s ease;
+  transform: translateY(-50%);
 }
 
-/* Al passaggio del mouse, la linea si estende */
-nav ul li a:hover::after {
+header nav ul li a:hover::after,
+header nav ul li a.active::after {
   width: 100%;
 }
 
-/* Se il link è attivo, la linea è già estesa */
-nav ul li a.active::after {
-  width: 100%;
+/* Icone nella navbar */
+.header-icons {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  transition: opacity 0.5s ease;
+}
+
+.header-icons a {
+  color: #fff;
+  font-size: 1.5em; /* Dimensione delle icone */
+  transition: transform 0.3s;
+}
+
+.header-icons a:hover {
+  transform: scale(1.2);
+}
+
+/* Stile per l'icona SVG (se usi un'immagine) */
+.social-icon {
+  width: 1.5em;
+  height: auto;
+  transition: transform 0.3s;
+}
+
+.social-icon:hover {
+  transform: scale(1.2);
+}
+
+/* Media Query per dispositivi mobili */
+@media (max-width: 768px) {
+  /* Posiziona l'header in alto */
+  header {
+    top: 0;
+  }
+  
+  /* Mantieni il layout a riga anche su mobile */
+  .header-container {
+    flex-direction: row; /* Assicura che rimanga in riga */
+  }
+  
+  header nav ul {
+    justify-content: center;
+  }
+  
+  header nav ul li {
+    margin: 0 8px;
+  }
+  
+  header nav ul li a {
+    padding: 8px 10px;
+    font-size: 14px;
+  }
+  
+  /* Rimuovi il margin-top per le icone se non vuoi che si spostino sotto */
+  .header-icons {
+    margin-top: 0;
+  }
+  
+  /* Se non vuoi le icone nelle altre pagine (fuori dalla homepage) */
+  body:not(.home) header .header-icons {
+    display: none;
+  }
 }
 
 /* Blocca hero fissato in background */
@@ -175,16 +242,36 @@ nav ul li a.active::after {
   font-size: 0.9em;
 }
 
+
+
 footer {
-  background-color: #000000; /* Sfondo scuro */
-  color: #fff;            /* Testo bianco */
-  text-align: center;     /* Centra il contenuto */
-  padding: 20px 0;        /* Spazio sopra e sotto */
-  font-size: 0.9em;       /* Dimensione del testo leggermente più piccola */
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 30px 20px;
   position: relative;
-  z-index: 1;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 footer p {
-  margin: 0;              /* Rimuove il margine di default */
+  margin: 10px 0;
+  font-size: 0.8em;
 }
+
+/* Stile per le icone social */
+.social-media a {
+  color: #fff;
+  margin: 10px;
+  font-size: 1.4em;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.social-media a:hover {
+  color: #606060; /* colore evidenziato al passaggio del mouse */
+  transform: scale(1.2);
+}
+

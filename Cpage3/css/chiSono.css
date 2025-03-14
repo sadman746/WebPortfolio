@@ -9,16 +9,13 @@ html, body {
 
 /* Header trasparente */
 header {
+    font-size: 1.1em;
     background: transparent;
-    padding: 10px 0;
+    padding: 0;
     position: fixed;
     width: 100%;
     top: 10%;
     z-index: 100;
-}
-
-header nav a:hover {
-    color: #cac9c9;
 }
 
 header nav ul {
@@ -30,7 +27,7 @@ header nav ul {
 }
 
 header nav ul li {
-    margin: 0 15px; /* Spazio tra gli elementi */
+    margin: 0 10px; /* Spazio tra gli elementi */
 }
 
 nav ul li a {
@@ -39,10 +36,10 @@ nav ul li a {
     padding: 10px 15px;
     position: relative;
     transition: color 0.3s;
-  }
+}
   
-  /* Pseudo-elemento per la linea sottostante */
-  nav ul li a::after {
+/* Pseudo-elemento per la linea sottostante */
+nav ul li a::after {
     content: "";
     position: absolute;
     top: 50%;
@@ -51,17 +48,17 @@ nav ul li a {
     height: 1px;
     background-color: #000000;
     transition: width 0.3s ease;
-  }
+}
   
-  /* Al passaggio del mouse, la linea si estende */
-  nav ul li a:hover::after {
+/* Al passaggio del mouse, la linea si estende */
+nav ul li a:hover::after {
     width: 100%;
-  }
+}
   
-  /* Se il link è attivo, la linea è già estesa */
-  nav ul li a.active::after {
+/* Se il link è attivo, la linea è già estesa */
+nav ul li a.active::after {
     width: 100%;
-  }
+}
 
 /* Sezione Hero */
 .hero {
@@ -156,9 +153,29 @@ nav ul li a {
         min-height: 250px;
     }
     
-    /* Header: eventualmente riduci il top per adattarsi meglio allo schermo */
+    /* Posiziona la navbar attaccata in alto */
     header {
-        top: 5%;
+        top: 0;
+    }
+      
+    /* Allinea gli elementi della navbar e riduci gli spazi */
+    header nav ul {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: center; /* oppure flex-start se preferisci allineamento a sinistra */
+    }
+      
+    /* Riduci lo spazio tra i link */
+    header nav ul li {
+        margin: 0 8px; /* Spaziatura orizzontale ridotta */
+    }
+      
+    /* Riduci il padding interno e, se necessario, la dimensione del testo */
+    header nav ul li a {
+        padding: 8px 10px;
+        font-size: 14px; /* Dimensione del testo leggermente minore */
     }
     
     /* Nuova sezione: aumenta leggermente i margini per migliore lettura */
@@ -168,15 +185,33 @@ nav ul li a {
 }
 
 footer {
-    background-color: #000000; /* Sfondo scuro */
-    color: #fff;            /* Testo bianco */
-    text-align: center;     /* Centra il contenuto */
-    padding: 20px 0;        /* Spazio sopra e sotto */
-    font-size: 0.9em;       /* Dimensione del testo leggermente più piccola */
+    background-color: #ffffff;
+    color: #000000;
+    text-align: center;
+    padding: 30px 20px;
     position: relative;
-    
+  }
+  
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
   }
   
   footer p {
-    margin: 0;              /* Rimuove il margine di default */
+    margin: 10px 0;
+    font-size: 0.8em;
+  }
+  
+  /* Stile per le icone social */
+  .social-media a {
+    color: #000000;
+    margin: 0 10px;
+    
+    font-size: 1.4em;
+    transition: transform 0.3s, color 0.3s;
+  }
+  
+  .social-media a:hover {
+    color: #606060; /* colore evidenziato al passaggio del mouse */
+    transform: scale(1.2);
   }
