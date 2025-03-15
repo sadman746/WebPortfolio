@@ -11,13 +11,21 @@
 </head>
 <body>
   <header>
-    <nav>
-      <ul>
-        <li><a href="index.html">Portfolio</a></li>
-        <li><a href="chi-sono.html" class="active">Chi Sono</a></li>
-        <li><a href="#contact">Contatti</a></li>
-      </ul>
-    </nav>
+    <div class="header-container">
+      <nav id="side-nav">
+        <ul>
+          <li><a href="index.html">Portfolio</a></li>
+          <li><a href="chi-sono.html" class="active">Chi Sono</a></li>
+          <li><a href="contatti.html">Contatti</a></li>
+        </ul>
+      </nav>
+      <div class="header-icons">
+        <a href="https://facebook.com/" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+        <a href="https://instagram.com/nunziaascolese" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://x.com/" target="_blank" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+        </a>
+      </div>
+    </div>
   </header>
 
   <main>
@@ -56,6 +64,20 @@
       <p>&copy; 2025 Nunzia Ascolese. Tutti i diritti riservati.</p>
     </div>
   </footer>
+  <script>
+    window.addEventListener('scroll', function() {
+  const headerIcons = document.querySelector('.header-icons');
+  // Se lo scroll supera 50px, nascondi le icone
+  if (window.scrollY > 50) {
+    headerIcons.style.opacity = '0';
+    // Se vuoi impedire l'interazione quando nascoste:
+    headerIcons.style.pointerEvents = 'none';
+  } else {
+    headerIcons.style.opacity = '1';
+    headerIcons.style.pointerEvents = 'auto';
+  }
+});
+  </script>
 
 </body>
 </html>

@@ -2,66 +2,125 @@
 html, body {
     margin: 0;
     padding: 0;
+    height: 100%;
     font-family: 'Montserrat', sans-serif;
     background-color: #fff;
     color: #333;
 }
 
-/* Header trasparente */
+/* Header base */
 header {
     font-size: 1.1em;
-    background: transparent;
-    padding: 0;
     position: fixed;
     width: 100%;
     top: 10%;
+    background: transparent;
     z-index: 100;
-}
-
-header nav ul {
+    padding: 10px 0;
+  }
+  
+  /* Contenitore interno che allinea navbar e icone */
+  .header-container {
+    max-width: 100%;
+    margin: 0 20px;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap; /* Per evitare che vada a capo */
+  }
+  
+  /* Navbar */
+  header nav ul {
     list-style: none;
     display: flex;
-    flex-direction: row; /* Disposizione orizzontale */
+    flex-direction: row; /* Forza la disposizione in riga */
     margin: 0;
     padding: 0;
-}
-
-header nav ul li {
-    margin: 0 10px; /* Spazio tra gli elementi */
-}
-
-nav ul li a {
-    color: #000000;
+  }
+  
+  header nav ul li {
+    margin: 0 10px;
+  }
+  
+  header nav ul li a {
+    color: #000; /* Testo in nero */
     text-decoration: none;
     padding: 10px 15px;
     position: relative;
     transition: color 0.3s;
-}
+  }
   
-/* Pseudo-elemento per la linea sottostante */
-nav ul li a::after {
+  /* Pseudo-elemento per l'underline */
+  header nav ul li a::after {
     content: "";
     position: absolute;
     top: 50%;
     left: 0;
     width: 0;
     height: 1px;
-    background-color: #000000;
+    background-color: #000; /* Underline in nero */
     transition: width 0.3s ease;
-}
+    transform: translateY(-50%);
+  }
   
-/* Al passaggio del mouse, la linea si estende */
-nav ul li a:hover::after {
+  header nav ul li a:hover::after,
+  header nav ul li a.active::after {
     width: 100%;
-}
+  }
   
-/* Se il link è attivo, la linea è già estesa */
-nav ul li a.active::after {
-    width: 100%;
-}
+  /* Icone nella navbar */
+  .header-icons {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    transition: opacity 0.5s ease;
+  }
+  
+  .header-icons a {
+    color: #000; /* Icone in nero */
+    font-size: 1.5em;
+    transition: transform 0.3s;
+  }
+  
+  .header-icons a:hover {
+    transform: scale(1.2);
+  }
+  
+  /* Media Query per dispositivi mobili */
+  @media (max-width: 768px) {
+    /* Nascondi le icone social su mobile */
+    .header-icons {
+      display: none;
+    }
+    
+    header {
+      top: 0;
+    }
+    
+    .header-container {
+      flex-direction: row;
+      flex-wrap: nowrap; /* Assicura la disposizione in riga */
+    }
+    
+    header nav ul {
+      justify-content: center;
+    }
+    
+    header nav ul li {
+      margin: 0 8px;
+    }
+    
+    header nav ul li a {
+      padding: 8px 10px;
+      font-size: 14px;
+      color: #000;
+    }
+  }
 
 /* Sezione Hero */
 .hero {
+    height: 100vh;
     position: relative;
     max-width: 1200px;
     margin: 40px auto;
