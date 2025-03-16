@@ -12,9 +12,14 @@
 <body style="margin: 0; overflow: hidden;">
     <!-- Loading screen -->
     <div id="loading-screen">
-        <div class="loader"></div>
-        <p>Caricamento in corso...</p>
+        <p class="instructions">
+            Per utilizzare la realtà aumentata, inquadra il marker HIRO con la fotocamera.<br>
+            Se non hai il marker, scaricalo <a href="https://raw.githubusercontent.com/AR-js-org/AR.js/master/data/images/hiro.png" target="_blank">qui</a> e stampalo.
+        </p>
         <button id="start-ar">Avvia AR</button>
+        <div id="animation-container" style="display: none;">
+            <div class="fade-animation">Caricamento...</div>
+        </div>
     </div>
     <!-- AR Scene -->
     <button id="home-button" style="display: none;">Torna alla Home</button>
