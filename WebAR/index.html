@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AR con Tracking</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/jeromeetienne/ar.js@1.7.2/aframe/build/aframe-ar.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+</head>
+<body style="margin: 0; overflow: hidden;">
+    <!-- Loading screen -->
+    <div id="loading-screen">
+        <div class="loader"></div>
+        <p>Caricamento in corso...</p>
+        <button id="start-ar">Avvia AR</button>
+    </div>
+    <!-- AR Scene -->
+    <button id="home-button" style="display: none;">Torna alla Home</button>
+    <a-scene embedded arjs vr-mode-ui="enabled: false;">
+        <a-marker preset="hiro">
+            <a-entity 
+                gltf-model="https://modelviewer.dev/shared-assets/models/Astronaut.glb" 
+                position="0 0 0"
+                scale="2 2 2">
+            </a-entity>
+        </a-marker>
+        <a-entity camera></a-entity>
+    </a-scene>
+</body>
+</html>

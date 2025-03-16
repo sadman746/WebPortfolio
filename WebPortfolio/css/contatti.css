@@ -1,0 +1,160 @@
+/* Impostazioni di base */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #fff;
+    color: #333;
+  }
+  
+  /* Layout generale: la pagina contatti occupa l'intero 100vh e usa Flexbox per distribuire header, main e footer */
+  body.contatti {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  /* Header: usato come nelle altre pagine, ma in questa pagina lo posizioniamo in modo statico */
+  header {
+    font-size: 1.1em;
+    width: 100%;
+    top: 10%;
+    position: fixed;
+    background: transparent;
+    padding: 10px 0;
+  }
+  .header-container {
+    max-width: 100%;
+    margin: 0 20px;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+  header nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+  }
+  header nav ul li {
+    margin: 0 10px;
+  }
+  header nav ul li a {
+    color: #000; /* Testo in nero */
+    text-decoration: none;
+    padding: 10px 15px;
+    position: relative;
+    transition: color 0.3s;
+  }
+  header nav ul li a::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: #000; /* Underline in nero */
+    transition: width 0.3s ease;
+    transform: translateY(-50%);
+  }
+  header nav ul li a:hover::after,
+  header nav ul li a.active::after {
+    width: 100%;
+  }
+  .header-icons {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    transition: opacity 0.5s ease;
+  }
+  .header-icons a {
+    color: #000; /* Icone in nero */
+    font-size: 1.5em;
+    transition: transform 0.3s;
+  }
+  .header-icons a:hover {
+    transform: scale(1.2);
+  }
+
+  .header-icons {
+    display: none;
+  }
+  
+  /* Media Query per dispositivi mobili */
+  @media (max-width: 768px) {
+    
+    header {
+      top: 0;
+    }
+    
+    header nav ul {
+      justify-content: center;
+    }
+    header nav ul li {
+      margin: 0 8px;
+    }
+    header nav ul li a {
+      padding: 8px 10px;
+      font-size: 14px;
+      color: #000;
+    }
+  }
+  
+  /* Main: Contenuto centrale (biglietto da visita) */
+  .contact-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .contact-text {
+    text-align: center;
+  }
+  .contact-text h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  .contact-text p {
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+  
+  /* Footer: posizionato in basso */
+  footer {
+    background-color: #ffffff;
+    color: #000000;
+    text-align: center;
+    padding: 30px 20px;
+    position: relative;
+  }
+  
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  footer p {
+    margin: 10px 0;
+    font-size: 0.8em;
+  }
+  
+  /* Stile per le icone social */
+  .social-media a {
+    color: #000000;
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 1.4em;
+    transition: transform 0.3s, color 0.3s;
+  }
+  
+  .social-media a:hover {
+    color: #606060; /* colore evidenziato al passaggio del mouse */
+    transform: scale(1.2);
+  }

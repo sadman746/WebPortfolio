@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Chi Sono - Nunzia Ascolese</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Import -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/54ce93ea33.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/chiSono.css">
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <nav id="side-nav">
+        <ul>
+          <li><a href="index.html">Portfolio</a></li>
+          <li><a href="chi-sono.html" class="active">Chi Sono</a></li>
+          <li><a href="contatti.html">Contatti</a></li>
+        </ul>
+      </nav>
+      <div class="header-icons">
+        <a href="https://facebook.com/" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+        <a href="https://instagram.com/nunziaascolese" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://x.com/" target="_blank" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-text">
+        <h1>NUNZIA ASCOLESE</h1>
+        <p><strong>
+          Nunzia Ascolese è un’artista italiana che opera nel campo delle artivisive.
+          Nasce a Napoli nel 2000 e cresce a San Giuseppe Vesuviano, un territorio che ha influenzato profondamente la sua ricerca artistica.
+          Nel 2019 si iscrive all’Accademia di Belle Arti di Napoli, dove ha approfondito la sua formazione, sviluppando una pratica artistica che spazia dalla scultura a installazioni e performance.
+        </strong></p>
+      </div>
+      <div class="hero-bg"></div>
+    </section>
+    <section class="additional-section">
+      <div class="container">
+        <p>
+          La sua arte si concentra su temi legati al paesaggio, all’abusivismo e alle dinamiche sociali ed ecologiche dei territori in trasformazione.
+          Attraverso il suo lavoro, Nunzia esplora il rapporto tra natura e urbanizzazione, cercando di dare voce a ciò che è marginalizzato e dimenticato, portando alla luce la complessità delle relazioni umane e ambientali.
+        </p>
+        <p>
+          Le sue realizzazioni, che spesso utilizzano materiali simbolici e fortemente espressivi, invitano il pubblico a riflettere sulla memoria colletivita, sulla sostenibilità e sulle sfide della contemporaneità.    
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="social-media">
+        <a href="https://facebook.com/tuoprofilo" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+        <a href="https://instagram.com/tuoprofilo" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://x.com/tuoprofilo" target="_blank" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+        </a>
+      </div>
+      <p>&copy; 2025 Nunzia Ascolese. Tutti i diritti riservati.</p>
+    </div>
+  </footer>
+  <script>
+    window.addEventListener('scroll', function() {
+  const headerIcons = document.querySelector('.header-icons');
+  // Se lo scroll supera 50px, nascondi le icone
+  if (window.scrollY > 50) {
+    headerIcons.style.opacity = '0';
+    // Se vuoi impedire l'interazione quando nascoste:
+    headerIcons.style.pointerEvents = 'none';
+  } else {
+    headerIcons.style.opacity = '1';
+    headerIcons.style.pointerEvents = 'auto';
+  }
+});
+  </script>
+
+</body>
+</html>
