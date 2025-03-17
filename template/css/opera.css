@@ -1,0 +1,172 @@
+/* HERO DINAMICO */
+.hero {
+    background: no-repeat center center/cover;
+    transform: scale(1.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 0;
+    will-change: transform, filter;
+    transition: transform 0.2s ease-out, filter 0.2s ease-out;
+}
+
+/* Wrapper per il contenuto sotto l'hero */
+.wrapper {
+    position: relative;
+    z-index: 1;
+    margin-top: 100vh;
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
+/* Testo dentro hero */
+.hero .hero-content {
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    transform: translateY(-50%);
+    text-align: right;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 15px 20px;
+    max-width: 80%;
+}
+
+.hero .hero-content h1 {
+    font-size: 3rem;
+}
+
+.hero .hero-content p {
+    font-size: 1.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero .hero-content {
+        background: rgb(255, 255, 255);
+        width: 100%;
+    }
+
+    .hero .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero .hero-content p {
+        font-size: 1.2rem;
+    }
+}
+
+/* SEZIONE OPERE */
+.opera-info-title {
+    margin-bottom: 0;
+    padding-top: 40px;
+    z-index: 1;
+    width: 100%;
+    background: #ffffff;
+    font-size: 2rem;
+    display: flex;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    padding-left: 40px;
+}
+
+.opera-info-title h2 {
+    margin-left: 40px; /* Sposta il testo a destra */
+}
+
+.opera-details {
+    display: flex;
+    flex-wrap: nowrap; /* Evita che le colonne vadano a capo */
+    align-items: stretch; /* Mantiene le sezioni della stessa altezza */
+    justify-content: space-between;
+    width: 100vw;
+    min-height: 50vh;
+    background: #ffffff;
+    box-sizing: border-box;
+}
+
+.opera-info {
+    flex: 0 0 40%; /* 40% della larghezza */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 40px;
+    background: #ffffff;
+    box-sizing: border-box;
+}
+
+.opera-description {
+    flex: 0 0 60%; /* 60% della larghezza */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 40px;
+    background: #ffffff;
+    box-sizing: border-box;
+}
+
+.year {
+    margin-left: auto; /* Sposta "2025" il più possibile a destra */
+    text-align: right;
+    display: inline-block;
+    white-space: nowrap; /* Impedisce che vada a capo */
+}
+
+.opera-info p {
+    display: flex;
+    justify-content: space-between; /* Mantiene gli elementi agli estremi */
+    align-items: center;
+    width: 100%;
+}
+
+.opera-info-description {
+    line-height: 1;
+    color: #9d9d9d !important;
+    font-size: 0.8rem !important;
+    text-align: left;
+    margin-top: 20px;
+}
+
+.opera-description p {
+    display: inline; /* Evita che il paragrafo venga forzato su una nuova riga */
+    margin: 10px 0; /* Riduce lo spazio tra i paragrafi */
+    font-size: 0.9rem;
+    color: #000000;
+}
+
+/* Responsive per mobile: una colonna */
+@media (max-width: 768px) {
+    .opera-info-content {
+        grid-template-columns: 1fr; /* Una sola colonna su dispositivi mobili */
+        text-align: center;
+    }
+
+    .opera-details {
+        flex-direction: column; /* Disposizione verticale */
+        align-items: center;
+        padding: 20px;
+    }
+
+    .opera-info,
+    .opera-description {
+        width: 100%; /* Occupa tutta la larghezza */
+        text-align: center;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .opera-description p {
+        text-align: center; /* Allinea il testo al centro */
+        margin-bottom: 10px; /* Aggiunge spazio tra i paragrafi */
+    }
+
+    .opera-info-title h2 {
+        font-size: 1.5rem; /* Riduce la dimensione su schermi piccoli */
+        margin-left: 0; /* Evita lo spostamento laterale */
+        text-align: center;
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "opera1": {
+      "title": "Sotto il Naso",
+      "location": "Casamale, Somma Vesuviana",
+      "opera-year":"2025",
+      "materials": "Alluminio",
+      "curator": "Christian Taranto",
+      "description": "Installation view presso Pu-tèca di Tramandars, Borgo Casamale, Somma Vesuviana, (Napoli).",
+      "full_description": "L’installazione nasce da un’indagine critica sul rapporto tra abitante e il territorio vesuviano...",
+      "hero_image": "https://res.cloudinary.com/dwcqqyaym/image/upload/v1742162784/opera8-1_bm89h9.jpg",
+      "images": [
+        "https://res.cloudinary.com/dwcqqyaym/image/upload/v1742162784/opera8-2_ahrcmy.png",
+        "https://res.cloudinary.com/dwcqqyaym/image/upload/v1742162793/opera8-3_earvbx.jpg"
+      ]
+    }
+  }

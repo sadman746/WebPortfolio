@@ -1,0 +1,102 @@
+/* Sezione della galleria */
+.gallery-container {
+    width: 100vw;
+    height: 100vh; /* Occupa l'intero schermo */
+    display: flex;
+    overflow-x: auto; /* Abilita lo scroll orizzontale */
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory; /* Effetto snap tra immagini */
+    white-space: nowrap;
+    padding: 20px 0;
+    box-sizing: border-box;
+    background: white; /* Background bianco */
+    -webkit-overflow-scrolling: touch; /* Scroll fluido su iOS */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer e Edge */
+}
+/* Nascondi la scrollbar */
+.gallery-container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari e Opera */
+}
+
+/* Stili generali per ogni immagine */
+.gallery-item {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    scroll-snap-align: center; /* Centra ogni immagine nello scroll */
+    overflow: hidden;
+    background: white;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Mantiene il rapporto corretto senza distorsioni */
+}
+
+/* Posizionamento e stile delle frecce */
+.gallery-prev,
+.gallery-next {
+    position: absolute;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0); /* Sfondo semitrasparente */
+    color: rgb(0, 0, 0);
+    border: none;
+    font-size: 2rem;
+    padding: 10px 15px;
+    cursor: pointer;
+    z-index: 10;
+    pointer-events: auto; /* Abilita il click */
+}
+
+/* Posizione delle frecce */
+.gallery-prev { left: 20px; }
+.gallery-next { right: 20px; }
+
+/* Effetto al passaggio del mouse */
+.gallery-prev:hover,
+.gallery-next:hover {
+    background: rgba(255, 255, 255, 0);
+    transform: translateY(-50%) scale(1.1);
+}
+
+
+/* Media query per dispositivi mobili */
+@media (max-width: 768px) {
+    .gallery-container {
+        height: 100vh; /* Ogni immagine occupa l'intero schermo */
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+    }
+
+    .gallery-item {
+        flex: 0 0 100vw; /* Occupa tutta la larghezza dello schermo */
+        height: 100vh; /* Occupa tutta l'altezza disponibile */
+    }
+
+    .gallery-prev, .gallery-next {
+        display: none;
+    }
+}
+
+/* media query per schermi più grandi */
+@media (min-width: 769px) {
+    .gallery-container {
+        display: flex;
+        justify-content: flex-start; /* Evita che le immagini si accavallino */
+        align-items: center;
+        overflow-x: auto; /* Abilita lo scroll orizzontale */
+        scroll-snap-type: x mandatory;
+        padding-left: 20vw; /* Sposta la prima immagine più al centro */
+        gap: 5vw; /* Aggiunge spazio tra le immagini */
+        white-space: nowrap;
+    }
+
+    .gallery-item {
+        flex: 0 0 80vw; /* Rende le immagini più larghe */
+        height: 80vh; /* Rettangolari */
+    }
+}
