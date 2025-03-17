@@ -1,8 +1,7 @@
-// scrollEffect.js
 let ticking = false;
 
 function updateHeroEffects() {
-  const hero = document.querySelector('.hero');
+  const hero = document.querySelector('.hero, .sotto-il-naso');
   const scrollY = window.scrollY;
 
   // Calcola il fattore di zoom, blur e luminosità
@@ -27,7 +26,7 @@ window.addEventListener('scroll', () => {
 //icone social visibili solo su hero 
 
 window.addEventListener('scroll', () => {
-  const hero = document.querySelector('.hero');
+  const hero = document.querySelector('.hero, .sotto-il-naso');
   const headerIcons = document.querySelector('.header-icons');
   if (!hero || !headerIcons) return;
   

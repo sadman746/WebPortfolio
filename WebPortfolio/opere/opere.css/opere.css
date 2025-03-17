@@ -1,0 +1,379 @@
+/* Impostazioni di base */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #fff;
+    color: #333;
+}
+
+/* Header base */
+header {
+    font-size: 1.1em;
+    position: fixed;
+    width: 100%;
+    top: 10%;
+    background: transparent;
+    z-index: 100;
+    padding: 10px 0;
+}
+  
+/* Contenitore interno che allinea navbar e icone */
+.header-container {
+    max-width: 100%;
+    margin: 0 20px;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap; /* Per evitare che vada a capo */
+}
+  
+/* Navbar */
+header nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row; /* Forza la disposizione in riga */
+    margin: 0;
+    padding: 0;
+}
+  
+header nav ul li {
+    margin: 0 10px;
+}
+  
+header nav ul li a {
+    color: #000; /* Testo in nero */
+    text-decoration: none;
+    padding: 10px 15px;
+    position: relative;
+    transition: color 0.3s;
+}
+  
+/* Pseudo-elemento per l'underline */
+header nav ul li a::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: #000; /* Underline in nero */
+    transition: width 0.3s ease;
+    transform: translateY(-50%);
+}
+  
+header nav ul li a:hover::after,
+header nav ul li a.active::after {
+    width: 100%;
+}
+  
+/* Icone nella navbar */
+.header-icons {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    transition: opacity 0.5s ease;
+}
+  
+.header-icons a {
+    color: #000; /* Icone in nero */
+    font-size: 1.5em;
+    transition: transform 0.3s;
+}
+  
+.header-icons a:hover {
+    transform: scale(1.2);
+}
+
+/* Sezione Galleria Opere */
+.gallery-container {
+    width: 100vw;
+    height: 100vh; /* Occupa l'intero schermo */
+    display: flex;
+    overflow-x: auto; /* Abilita lo scroll orizzontale */
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory; /* Scatta su ogni immagine */
+    white-space: nowrap;
+    gap: 10px;
+    padding: 20px 0;
+    box-sizing: border-box;
+    background: white; /* Imposta il background bianco */
+}
+
+.gallery-item {
+    flex: 0 0 auto;
+    width: 90vh; /* Imposta le immagini come quadrate */
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    scroll-snap-align: center; /* Centra ogni immagine nello scroll */
+    overflow: hidden;
+    background: white; /* Imposta lo sfondo bianco per evitare il hero */
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Mantiene il rapporto corretto senza distorsioni */
+}
+
+@media (max-width: 768px) {
+    .gallery-container {
+        height: 100vh; /* Fa in modo che ogni immagine occupi tutto lo schermo */
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+    }
+
+    .gallery-item {
+        flex: 0 0 100vw; /* Occupa l'intera larghezza dello schermo */
+        height: 100vh; /* Occupa tutta l'altezza disponibile */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        scroll-snap-align: center;
+        overflow: hidden;
+        background: white;
+    }
+}
+  
+/* Media Query per dispositivi mobili */
+@media (max-width: 768px) {
+    /* Nascondi le icone social su mobile */
+    .header-icons {
+      display: none;
+    }
+    
+    header {
+      top: 0;
+    }
+    
+    .header-container {
+      flex-direction: row;
+      flex-wrap: nowrap; /* Assicura la disposizione in riga */
+    }
+    
+    header nav ul {
+      justify-content: center;
+    }
+    
+    header nav ul li {
+      margin: 0 8px;
+    }
+    
+    header nav ul li a {
+      padding: 8px 10px;
+      font-size: 14px;
+      color: #000;
+    }
+}
+
+/* Blocca hero fissato in background */
+.hero {
+    background: url('https://res.cloudinary.com/dwcqqyaym/image/upload/v1742162784/opera8-1_bm89h9.jpg') no-repeat center center/cover;
+    transform: scale(1.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 0;
+    will-change: transform, filter; /* Suggerisce al browser di ottimizzare queste proprietà */
+    transition: transform 0.2s ease-out, filter 0.2s ease-out;
+}
+  
+/* Contenuto principale (portfolio e footer) che scorre sopra il blocco hero */
+.wrapper {
+    position: relative;
+    z-index: 1;
+    margin-top: 100vh;
+}
+  
+/* Posizionamento del testo nel hero */
+.hero .hero-content {
+    /*font-family: 'Inter', sans-serif !important; /* Cambia il font */
+    position: absolute;
+    top: 50%;
+    right: 10%;  /* Sposta il testo verso destra */
+    transform: translateY(-50%);
+    text-align: right;
+    color: #000000;
+    background: rgb(255, 255, 255); /* Riduci opacità */
+    padding: 15px 20px;
+    max-width: 80%; /* Impedisce che sia troppo largo */
+}
+
+.hero .hero-content h1 {
+    font-size: 3rem;
+}
+
+.hero .hero-content p {
+    font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .hero .hero-content {
+        background: rgb(255, 255, 255); /* Ancora più trasparente su mobile */
+        width: 100%;
+    }
+
+    .hero .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero .hero-content p {
+        font-size: 1.2rem;
+    }
+}
+
+/* Sezione delle opere */
+
+.opera-info-title {
+    margin-bottom: 0;
+    padding-top: 40px;
+    z-index: 1;
+    width: 100%;
+    background: #ffffff;
+    font-size: 2rem;
+    display: flex;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    padding-left: 40px;
+}
+
+.opera-info-title h2 {
+    margin-left: 40px; /* Sposta il testo a destra */
+}
+
+.opera-details {
+    display: flex;
+    flex-wrap: nowrap; /* Evita che le colonne vadano a capo */
+    align-items: stretch; /* Mantiene le sezioni della stessa altezza */
+    justify-content: space-between;
+    width: 100vw;
+    min-height: 50vh;
+    background: #ffffff;
+    box-sizing: border-box;
+}
+
+.opera-info {
+    flex: 0 0 40%; /* 40% della larghezza */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 40px;
+    background: #ffffff;
+    box-sizing: border-box;
+}
+
+.opera-description {
+    flex: 0 0 60%; /* 60% della larghezza */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 40px;
+    background: #ffffff;
+    box-sizing: border-box;
+}
+
+.year {
+    margin-left: auto; /* Sposta "2025" il più possibile a destra */
+    text-align: right;
+    display: inline-block;
+    white-space: nowrap; /* Impedisce che vada a capo */
+}
+
+.opera-info p {
+    display: flex;
+    justify-content: space-between; /* Mantiene gli elementi agli estremi */
+    align-items: center;
+    width: 100%;
+}
+
+.opera-info-description {
+    line-height: 1;
+    color: #9d9d9d !important;
+    font-size: 0.8rem !important;
+    text-align: left;
+    margin-top: 20px;
+}
+
+.opera-description p {
+    display: inline; /* Evita che il paragrafo venga forzato su una nuova riga */
+    margin: 10px 0; /* Riduce lo spazio tra i paragrafi */
+    font-size: 0.9rem;
+    color: #000000;
+}
+
+/* Responsive per mobile: una colonna */
+@media (max-width: 768px) {
+    .opera-info-content {
+        grid-template-columns: 1fr; /* Una sola colonna su dispositivi mobili */
+        text-align: center;
+    }
+
+    .opera-details {
+        flex-direction: column; /* Disposizione verticale */
+        align-items: center;
+        padding: 20px;
+    }
+
+    .opera-info,
+    .opera-description {
+        width: 100%; /* Occupa tutta la larghezza */
+        text-align: center;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .opera-description p {
+        text-align: center; /* Allinea il testo al centro */
+        margin-bottom: 10px; /* Aggiunge spazio tra i paragrafi */
+    }
+
+    .opera-info-title h2 {
+        font-size: 1.5rem; /* Riduce la dimensione su schermi piccoli */
+        margin-left: 0; /* Evita lo spostamento laterale */
+        text-align: center;
+    }
+}
+
+
+/* Footer */
+footer {
+    background-color: #ffffff;
+    color: #000000;
+    text-align: center;
+    padding: 30px 20px;
+    position: relative;
+}
+  
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+  
+footer p {
+    margin: 10px 0;
+    font-size: 0.8em;
+}
+  
+/* Stile per le icone social */
+.social-media a {
+    color: #000000;
+    margin: 0 10px;
+    
+    font-size: 1.4em;
+    transition: transform 0.3s, color 0.3s;
+}
+  
+.social-media a:hover {
+    color: #606060; /* colore evidenziato al passaggio del mouse */
+    transform: scale(1.2);
+}

@@ -241,6 +241,30 @@ header nav ul li a.active::after {
   opacity: 1;
 }
 
+.portfolio-description a {
+  color: inherit; /* Mantiene il colore originale del testo */
+  text-decoration: none; /* Rimuove la sottolineatura */
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* Effetto simile alla navbar: linea sottostante */
+.portfolio-description a::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: currentColor; /* Usa lo stesso colore del testo */
+  transition: width 0.3s ease;
+  transform: translateY(-50%);
+}
+
+.portfolio-description a:hover::after {
+  width: 100%;
+}
+
 .portfolio-description p {
   white-space: pre-wrap;
   font-size: 0.9em;
@@ -278,4 +302,3 @@ footer p {
   color: #606060; /* colore evidenziato al passaggio del mouse */
   transform: scale(1.2);
 }
-
