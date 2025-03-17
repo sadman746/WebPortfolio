@@ -43,39 +43,22 @@ window.addEventListener('scroll', () => {
     headerIcons.style.visibility = 'hidden';
   }
 });
-
+//Galleria immagini 
 document.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll(".portfolio-item").forEach(item => {
-    item.addEventListener("click", function (event) {
-      // Se si sta cliccando su un link, lascia che funzioni normalmente
-      if (event.target.tagName === "A") {
-        return;
-      }
+  const gallery = document.querySelector(".gallery-container");
+  const prevButton = document.querySelector(".gallery-prev");
+  const nextButton = document.querySelector(".gallery-next");
 
-      // Se l'elemento è già attivo, lo disattiva
-      if (this.classList.contains("active")) {
-        this.classList.remove("active");
-      } else {
-        // Rimuove l'attivazione da tutte le altre opere
-        document.querySelectorAll(".portfolio-item").forEach(el => {
-          el.classList.remove("active");
-        });
+  // Imposta quanto scrollare a ogni click
+  const scrollStep = window.innerWidth * 0.7; // Scorri circa il 70% della larghezza dello schermo
 
-        // Attiva solo l'elemento cliccato
-        this.classList.add("active");
-      }
-
-      // Previene il comportamento predefinito solo per i touch screen
-      event.preventDefault();
-    });
+  // Evento per la freccia sinistra
+  prevButton.addEventListener("click", function () {
+      gallery.scrollBy({ left: -scrollStep, behavior: "smooth" }); // Scorrimento fluido a sinistra
   });
 
-  // Chiude la descrizione quando si tocca fuori
-  document.addEventListener("click", function (event) {
-    if (!event.target.closest(".portfolio-item")) {
-      document.querySelectorAll(".portfolio-item").forEach(item => {
-        item.classList.remove("active");
-      });
-    }
+  // Evento per la freccia destra
+  nextButton.addEventListener("click", function () {
+      gallery.scrollBy({ left: scrollStep, behavior: "smooth" }); // Scorrimento fluido a destra
   });
 });
