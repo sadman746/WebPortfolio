@@ -43,3 +43,34 @@ window.addEventListener('scroll', () => {
     headerIcons.style.visibility = 'hidden';
   }
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".portfolio-item").forEach(item => {
+    item.addEventListener("click", function (event) {
+      // Se l'elemento è già attivo, lo disattiva
+      if (this.classList.contains("active")) {
+        this.classList.remove("active");
+      } else {
+        // Rimuove l'attivazione da tutte le altre opere
+        document.querySelectorAll(".portfolio-item").forEach(el => {
+          el.classList.remove("active");
+        });
+
+        // Attiva solo l'elemento cliccato
+        this.classList.add("active");
+      }
+
+      // Previene il comportamento predefinito solo per i touch screen
+      event.preventDefault();
+    });
+  });
+
+  // Chiude la descrizione quando si tocca fuori
+  document.addEventListener("click", function (event) {
+    if (!event.target.closest(".portfolio-item")) {
+      document.querySelectorAll(".portfolio-item").forEach(item => {
+        item.classList.remove("active");
+      });
+    }
+  });
+});
