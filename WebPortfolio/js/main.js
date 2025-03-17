@@ -47,6 +47,11 @@ window.addEventListener('scroll', () => {
 document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll(".portfolio-item").forEach(item => {
     item.addEventListener("click", function (event) {
+      // Se si sta cliccando su un link, lascia che funzioni normalmente
+      if (event.target.tagName === "A") {
+        return;
+      }
+
       // Se l'elemento è già attivo, lo disattiva
       if (this.classList.contains("active")) {
         this.classList.remove("active");
