@@ -1,0 +1,38 @@
+{
+  "sotto-il-naso": {
+    "title": "Sotto il Naso",
+    "year": "2025",
+    "location": "Casamale, Somma Vesuviana",
+    "dimensions": "variabili dallo spazio, lamina 20x20 cm, naso 15x7x5 cm.",
+    "materials": "Alluminio",
+    "curator": "Christian Taranto",
+    "description": "Installation view presso Pu-tèca di Tramandars, Borgo Casamale, Somma Vesuviana, (Napoli).",
+    "full_description": "L’installazione nasce da un’indagine critica sul rapporto tra abitante e il territorio vesuviano, maturata attraverso un’esperienza diretta sul luogo.\n\nIl progetto si compone di 8 lamine incise e un naso dalle fattezze falliche in alluminio.\n\nDurante l’esposizione presso Pu-tèca di Tramandars, Borgo Casamale, Somma Vesuviana, (Napoli), è stata realizzata una Performance di apertura, attivando un dialogo tra corpo, materia e territorio. Indossando il prolungamento del naso scultoreo, l’artista, ha cosparso la stanza di terreno, rievocando in chiave performativa i gesti compiuti sul Vesuvio: scavare e riempire, come avviene nelle discariche disseminate nell’area.\n\nIl progetto intende documentare e mettere in luce le menzogne ripetute negli anni riguardo alla crisi ambientale vesuviana, trasformando questa realtà in un processo di normalizzazione",
+    "hero_image": "https://res.cloudinary.com/dwcqqyaym/image/upload/f_auto,q_auto/v1742162784/opera8-1_bm89h9.jpg",
+    "images": [
+      "https://res.cloudinary.com/dwcqqyaym/image/upload/f_auto,q_auto/v1742162784/opera8-1_bm89h9.jpg",
+      "https://res.cloudinary.com/dwcqqyaym/image/upload/f_auto,q_auto/v1742162793/opera8-2_ahrcmy.png",
+      "https://res.cloudinary.com/dwcqqyaym/image/upload/f_auto,q_auto/v1742162784/opera8-3_earvbx.jpg",
+      "https://res.cloudinary.com/dwcqqyaym/image/upload/f_auto,q_auto/v1742162785/opera8-4_egne6l.jpg",
+      "https://res.cloudinary.com/dwcqqyaym/image/upload/f_auto,q_auto/v1742162785/opera8-5_vry2yd.jpg",
+      "https://res.cloudinary.com/dwcqqyaym/image/upload/f_auto,q_auto/v1742162780/opera8-6_wqacmi.jpg",
+      "https://res.cloudinary.com/dwcqqyaym/image/upload/f_auto,q_auto/v1741904872/opera8_dfgja1.jpg"
+    ]
+  },
+
+  "solo-un-sasso": {
+    "title": "Solo un Sasso",
+    "year": "2023",
+    "location": "MUSAP, Napoli",
+    "dimensions": "115x40x43 cm",
+    "materials": "Stone from Vesuvius, Glass, Iron",
+    "curator": "Diego Esposito",
+    "description": "“Le Promesse dell’arte”, group show at MUSAP (Napoli)",
+    "full_description": "Ricordate la nostra infanzia come minerali, come lava, come rocce? Le rocce hanno in sé la\npotenzialità di trasformarsi in cose come questa. Siamo rocce che danzano. Perchéle guardiamo\ndall’alto in basso con quell’aria condiscendente? Sono una parte immortale di noi\n\nDal libro Pluriverso. Dizionario del post-sviluppo, a cura di: Ashish Kothari, Ariel Salleh, Arturo Escobar, Federico Demaria, Alberto Acosta.\n\nLa distinzione tra vita e non vita è un costrutto umano, l’essere umano con la propria cultura ha\nstabilito questa distinzione e ha poi deciso cosa farne. L’opera rappresenta una roccia vulcanica a\nforma di sfera con un rimando alla Terra.\nLo spettatore e la roccia vengono divisi da una lastra di vetro, è impossibile toccarla, si può solo\nosservare quel che rimane. Essa viene esposta e conservata come un prodotto in vendita unico\nnella sua specie, un reperto archeologico ammirato da tutti. La vetrina è un’allusione alla realtà, è\ntrasparente, indaga la spettacolarizzazione della società, eppure ciò che si vede è solo un sasso.\nVive nella sua istantaneità, viene ammirata e caratterizza i consumi di cui l’individuo può godere.\nL’opera indaga il rapporto tra Terra e consumismo nell’epoca contemporanea, mettendo il globo stesso in vendita una volta fatto esaurire ogni energia da essa prodotta.\nLo spettatore, avvicinandosi all’opera e girandoci intorno, ha la possibilità di scoprire una realtà\nnon presente. Con una lente di ingrandimento scopre i dettagli della roccia e vede com’è fatta,\nma guardandola dall’alto, ci si abbassa per osservare meglio e legge una frase: “Solo un Sasso”,\nriportandolo alla realtà",
+    "hero_image": "https://res.cloudinary.com/dwcqqyaym/image/upload/f_auto,q_auto/v1741904871/opera1_thfejo.jpg",
+    "images": [
+      "https://res.cloudinary.com/dwcqqyaym/image/upload/f_auto,q_auto/v1741904871/opera1_thfejo.jpg",
+      "https://res.cloudinary.com/dwcqqyaym/image/upload/f_auto,q_auto/v1742261892/opera1-1_aijonz.jpg"
+    ]
+  }
+}

@@ -43,7 +43,7 @@ window.addEventListener('scroll', () => {
     headerIcons.style.visibility = 'hidden';
   }
 });
-//Galleria immagini 
+//Galleria immagini
 document.addEventListener("DOMContentLoaded", function () {
   const gallery = document.querySelector(".gallery-container");
   const prevButton = document.querySelector(".gallery-prev");

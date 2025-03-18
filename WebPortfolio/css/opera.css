@@ -138,6 +138,10 @@
     color: #000000;
 }
 
+#opera-full-description {
+    white-space: pre-line;
+}
+
 /* Responsive per mobile: una colonna */
 @media (max-width: 768px) {
     .opera-info-content {

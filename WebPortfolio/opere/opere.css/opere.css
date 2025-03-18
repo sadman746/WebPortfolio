@@ -278,7 +278,6 @@ header nav ul li a.active::after {
         width: 100%; /* Occupa tutta la larghezza */
         text-align: center;
         align-items: center;
-        padding: 20px;
     }
 
     .opera-description p {
@@ -302,7 +301,6 @@ header nav ul li a.active::after {
     overflow-y: hidden;
     scroll-snap-type: x mandatory; /* Effetto snap tra immagini */
     white-space: nowrap;
-    padding: 20px 0;
     box-sizing: border-box;
     background: white; /* Background bianco */
     -webkit-overflow-scrolling: touch; /* Scroll fluido su iOS */

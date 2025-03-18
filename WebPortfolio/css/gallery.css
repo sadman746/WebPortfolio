@@ -7,7 +7,6 @@
     overflow-y: hidden;
     scroll-snap-type: x mandatory; /* Effetto snap tra immagini */
     white-space: nowrap;
-    padding: 20px 0;
     box-sizing: border-box;
     background: white; /* Background bianco */
     -webkit-overflow-scrolling: touch; /* Scroll fluido su iOS */
