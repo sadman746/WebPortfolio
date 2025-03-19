@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const params = new URLSearchParams(window.location.search);
     const operaID = params.get("id");
 
-    fetch("/WebPortfolio/data/opere-data.json")
+    fetch("data/opere-data.json")
         .then(response => response.json())
         .then(data => {
             if (data[operaID]) {
