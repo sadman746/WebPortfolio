@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const params = new URLSearchParams(window.location.search);
     const operaID = params.get("id");
 
-    fetch("/data/opere-data.json")
+    fetch("/WebPortfolio/data/opere-data.json")
         .then(response => response.json())
         .then(data => {
             if (data[operaID]) {
@@ -26,29 +26,53 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 // Gestione della galleria
                 const galleryContainer = document.querySelector(".gallery-container");
-                
-                // Rimuove il contenitore intermedio se presente
-                const galleryContent = document.getElementById("gallery-content");
-                if (galleryContent) {
-                    galleryContent.remove();
-                }
-                
-                // Seleziona il pulsante "gallery-next" per inserire le immagini prima di esso
                 const nextButton = galleryContainer.querySelector(".gallery-next");
+                const prevButton = galleryContainer.querySelector(".gallery-prev");
 
                 if (opera.images && opera.images.length > 0) {
-                    opera.images.forEach(img => {
+                    opera.images.forEach(media => {
                         let div = document.createElement("div");
                         div.classList.add("gallery-item");
-                        
-                        let image = document.createElement("img");
-                        image.src = img;
-                        image.alt = "Opera Image";
-                        
-                        div.appendChild(image);
-                        // Inserisce l'elemento della galleria prima del pulsante "gallery-next"
+
+                        if (media.endsWith(".mp4") || media.endsWith(".webm") || media.endsWith(".ogg")) {
+                            let video = document.createElement("video");
+                            video.src = media;
+                            video.controls = true;
+                            video.autoplay = false;
+                            video.loop = false;
+                            video.muted = false;
+                            video.style.maxWidth = "100%";
+                            video.style.height = "auto";
+                            div.appendChild(video);
+                        } else {
+                            let image = document.createElement("img");
+                            image.src = media;
+                            image.alt = "Opera Image";
+                            div.appendChild(image);
+                        }
+
                         galleryContainer.insertBefore(div, nextButton);
                     });
+
+                    // Controllo dello scroll per avviare/mettere in pausa i video
+                    function checkVisibleVideos() {
+                        document.querySelectorAll(".gallery-item video").forEach(video => {
+                            let rect = video.getBoundingClientRect();
+                            let isVisible = rect.left >= 0 && rect.right <= window.innerWidth;
+                            
+                            if (isVisible) {
+                                video.play();
+                            } else {
+                                video.pause();
+                            }
+                        });
+                    }
+
+                    // Attiva il controllo quando si scorre nella galleria
+                    galleryContainer.addEventListener("scroll", checkVisibleVideos);
+
+                    // Controllo iniziale all'avvio della pagina
+                    checkVisibleVideos();
                 } else {
                     let p = document.createElement("p");
                     p.textContent = "Nessuna immagine disponibile";
@@ -59,4 +83,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         })
         .catch(error => console.error("Errore nel caricamento dei dati:", error));
+        
+        
 });

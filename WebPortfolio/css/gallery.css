@@ -7,11 +7,13 @@
     overflow-y: hidden;
     scroll-snap-type: x mandatory; /* Effetto snap tra immagini */
     white-space: nowrap;
+    justify-content: flex-start; /* Evita che l'ultimo elemento sia tagliato */
     box-sizing: border-box;
     background: white; /* Background bianco */
     -webkit-overflow-scrolling: touch; /* Scroll fluido su iOS */
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* Internet Explorer e Edge */
+    scroll-behavior: smooth; /* Scroll fluido */
 }
 /* Nascondi la scrollbar */
 .gallery-container::-webkit-scrollbar {
@@ -20,13 +22,19 @@
 
 /* Stili generali per ogni immagine */
 .gallery-item {
-    flex: 0 0 auto;
+    flex: 0 0 100vw;
     display: flex;
     align-items: center;
     justify-content: center;
     scroll-snap-align: center; /* Centra ogni immagine nello scroll */
     overflow: hidden;
     background: white;
+}
+
+/* Aggiunge spazio alla fine della galleria per centrare l'ultimo elemento */
+.gallery-container::after {
+    content: "";
+    flex: 0 0 50vw; /* Spazio extra per evitare il taglio dell'ultimo elemento */
 }
 
 .gallery-item img {
@@ -78,6 +86,14 @@
 
     .gallery-prev, .gallery-next {
         display: none;
+    }
+    
+    .gallery-item video {
+        width: 100%;
+        max-width: 90vw;  /* Mantiene un rapporto di 9:16 */
+        height: 100vw;
+        aspect-ratio: 9 / 16; /* Imposta l'aspect ratio corretto */
+        object-fit: cover;
     }
 }
 

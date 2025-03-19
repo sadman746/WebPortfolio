@@ -144,33 +144,56 @@
 
 /* Responsive per mobile: una colonna */
 @media (max-width: 768px) {
-    .opera-info-content {
-        grid-template-columns: 1fr; /* Una sola colonna su dispositivi mobili */
+    /* Allinea correttamente il titolo dell'opera */
+    .opera-info-title {
         text-align: center;
+        font-size: 1.8rem; /* Riduce leggermente la dimensione del titolo */
+        padding: 20px;
+        width: 100%;
     }
 
+    /* Assicura che le informazioni siano leggibili e ben allineate */
+    .opera-info {
+        width: 100%;
+        text-align: center;
+        padding: 20px;
+    }
+
+    /* Regola la descrizione breve per evitare problemi di overflow */
+    .opera-info-description {
+        font-size: 1rem;
+        line-height: 1.4;
+        padding: 10px;
+        max-width: 90%;
+        margin: 0 auto; /* Centra il testo */
+    }
+
+    /* Evita che la sezione della descrizione si allarghi troppo */
     .opera-details {
-        flex-direction: column; /* Disposizione verticale */
+        flex-direction: column;
         align-items: center;
         padding: 20px;
     }
 
-    .opera-info,
-    .opera-description {
-        width: 100%; /* Occupa tutta la larghezza */
-        text-align: center;
+    .location-year {
+        display: flex;
+        flex-direction: row; /* Forza il testo a dividersi in due righe */
         align-items: center;
-        padding: 20px;
+        text-align: left;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        width: 90%; /* Evita che si allarghi troppo */
+        margin: 0 auto; /* Centra il testo */
     }
 
-    .opera-description p {
-        text-align: center; /* Allinea il testo al centro */
-        margin-bottom: 10px; /* Aggiunge spazio tra i paragrafi */
+    /* Riduce la dimensione del testo per evitare che si spezzi male */
+    .location {
+        font-size: 1rem;
+        max-width: 100%;
     }
 
-    .opera-info-title h2 {
-        font-size: 1.5rem; /* Riduce la dimensione su schermi piccoli */
-        margin-left: 0; /* Evita lo spostamento laterale */
-        text-align: center;
+    .year {
+        font-size: 1rem;
+        text-align: right;
     }
 }
