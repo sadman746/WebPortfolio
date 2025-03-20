@@ -3,69 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Three.js AR Model Viewer</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/loaders/GLTFLoader.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/webxr/ARButton.js"></script>
+    <title>AR con Tracking</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/jeromeetienne/ar.js@1.7.2/aframe/build/aframe-ar.min.js"></script>
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
 </head>
-<body>
+<body style="margin: 0; overflow: hidden;">
+    <!-- Loading screen -->
     <div id="loading-screen">
         <p class="instructions">
-            Attendi il caricamento del modello 3D.
+            Per utilizzare la realtà aumentata, inquadra il marker HIRO con la fotocamera.<br>
+            Se non hai il marker, scaricalo <a href="https://raw.githubusercontent.com/AR-js-org/AR.js/master/data/images/hiro.png" target="_blank">qui</a> e stampalo.
         </p>
         <button id="start-ar">Avvia AR</button>
+        <div id="animation-container" style="display: none;">
+            <div class="fade-animation">Caricamento...</div>
+        </div>
     </div>
-    
-    <div id="three-container"></div>
+    <!-- AR Scene -->
     <button id="home-button" style="display: none;">Torna alla Home</button>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const startButton = document.getElementById("start-ar");
-            const homeButton = document.getElementById("home-button");
-
-            startButton.addEventListener("click", () => {
-                document.getElementById("loading-screen").style.display = "none";
-                homeButton.style.display = "block";
-                initAR();
-            });
-
-            homeButton.addEventListener("click", () => {
-                window.location.href = "/";
-            });
-        });
-
-        function initAR() {
-            const scene = new THREE.Scene();
-            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            renderer.xr.enabled = true;
-            document.getElementById("three-container").appendChild(renderer.domElement);
-
-            document.body.appendChild(THREE.ARButton.createButton(renderer));
-
-            const light = new THREE.HemisphereLight(0xffffff, 0x444444, 1);
-            scene.add(light);
-
-            const loader = new THREE.GLTFLoader();
-            loader.load('https://modelviewer.dev/shared-assets/models/Astronaut.glb', function (gltf) {
-                const model = gltf.scene;
-                model.position.set(0, 0, -1);
-                model.scale.set(0.5, 0.5, 0.5);
-                scene.add(model);
-            }, undefined, function (error) {
-                console.error('Errore nel caricamento del modello:', error);
-            });
-
-            function animate() {
-                renderer.setAnimationLoop(() => {
-                    renderer.render(scene, camera);
-                });
-            }
-            animate();
-        }
-    </script>
+    <a-scene embedded arjs vr-mode-ui="enabled: false;">
+        <a-marker preset="hiro">
+            <a-entity 
+                gltf-model="https://res.cloudinary.com/dwcqqyaym/image/upload/v1742486706/prova_limite_vesuvioO_1_cm_u5gyo2.glb" 
+                position="0 0 -1"
+                scale="1 1 1">
+            </a-entity>
+        </a-marker>
+        <a-entity camera></a-entity>
+    </a-scene>
 </body>
 </html>
