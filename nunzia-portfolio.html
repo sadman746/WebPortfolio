@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nunzia Ascolese Portfolio - Development Process</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #0a0a0a;
+      --text-color: #f5f5f5;
+      --spacing-unit: 1rem;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--primary-color);
+      color: var(--text-color);
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: 0.02em;
+      line-height: 1.7;
+      padding: calc(var(--spacing-unit) * 2);
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: calc(var(--spacing-unit) * 2);
+      margin-left: 250px;
+      background: rgba(10, 10, 10, 0.3);
+      backdrop-filter: blur(24px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    }
+    .side-nav {
+      position: fixed;
+      left: 20px;
+      top: 100px;
+      width: 200px;
+      padding: calc(var(--spacing-unit) * 1.5);
+    }
+
+    .side-nav ul {
+      margin: 0;
+      list-style: none;
+    }
+
+    .side-nav li {
+      padding: calc(var(--spacing-unit) * 0.8) 0;
+      margin: calc(var(--spacing-unit) * 0.3) 0;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .side-nav li::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--text-color), transparent);
+      opacity: 0;
+      transform: scaleX(0);
+      transition: all 0.3s ease;
+    }
+
+    .side-nav li:hover::after {
+      opacity: 1;
+      transform: scaleX(1);
+    }
+
+    .side-nav li:before {
+      display: none;
+    }
+
+    .side-nav a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-size: 0.9rem;
+      opacity: 0.8;
+      transition: all 0.3s ease;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      background: transparent;
+    }
+
+    .side-nav a:hover {
+      opacity: 1;
+    }
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: calc(var(--spacing-unit) * 3);
+      text-align: center;
+      color: var(--text-color);
+      letter-spacing: -1px;
+    }
+
+    h2 {
+      font-size: 2rem;
+      font-weight: 500;
+      margin: calc(var(--spacing-unit) * 2) 0;
+      color: var(--text-color);
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin: calc(var(--spacing-unit) * 1.5) 0;
+      color: var(--text-color);
+      opacity: 0.9;
+    }
+
+    h4 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin: var(--spacing-unit) 0;
+      color: var(--text-color);
+      opacity: 0.9;
+    }
+
+    .section {
+      margin-bottom: calc(var(--spacing-unit) * 4);
+      transition: transform 0.3s ease;
+    }
+
+    .section:hover {
+      transform: translateY(-2px);
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .gallery figure {
+      margin: 0;
+      transition: transform 0.3s ease;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .gallery figure:hover {
+      transform: translateY(-5px);
+    }
+
+    .gallery img,
+    .gallery video {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px 8px 0 0;
+    }
+
+    .gallery figcaption {
+      padding: 1rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--text-color);
+      opacity: 0.8;
+    }
+
+    .description {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--text-color);
+      opacity: 0.85;
+    }
+
+    ul {
+      list-style: none;
+      margin: calc(var(--spacing-unit) * 1.5) 0;
+    }
+
+    li {
+      margin: calc(var(--spacing-unit) * 0.75) 0;
+      position: relative;
+      padding-left: calc(var(--spacing-unit) * 1.5);
+      transition: transform 0.2s ease;
+    }
+
+    li:before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--text-color);
+      opacity: 0.7;
+    }
+
+    li:hover {
+      transform: translateX(4px);
+    }
+
+    .visit-button {
+      display: inline-block;
+      padding: calc(var(--spacing-unit) * 1.2) calc(var(--spacing-unit) * 2.4);
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--primary-color);
+      background: var(--text-color);
+      text-decoration: none;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      margin: calc(var(--spacing-unit) * 2) auto;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .visit-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(74, 144, 226, 0.2);
+      background: var(--text-color);
+      color: var(--primary-color);
+    }
+
+    @media (max-width: 768px) {
+      :root {
+        --spacing-unit: 0.875rem;
+      }
+
+      body {
+        padding: var(--spacing-unit);
+      }
+
+      .container {
+        padding: calc(var(--spacing-unit) * 1.5);
+        margin-left: 0;
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .side-nav {
+        display: none;
+      }
+
+      .mobile-nav {
+        position: fixed;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .mobile-nav-dot {
+        width: 10px;
+        height: 10px;
+        background: var(--text-color);
+        border-radius: 50%;
+        opacity: 0.3;
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+
+      .mobile-nav-dot.active {
+        opacity: 1;
+        transform: scale(1.2);
+      }
+
+      h1 {
+        font-size: 2rem;
+        margin-top: calc(var(--spacing-unit) * 4);
+      }
+
+      h2 {
+        font-size: 1.75rem;
+      }
+
+      h3 {
+        font-size: 1.25rem;
+      }
+
+      .description {
+        font-size: 1rem;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .gallery figure {
+        margin: 0 -1rem;
+        border-radius: 0;
+      }
+
+      .gallery img,
+      .gallery video {
+        border-radius: 0;
+        height: auto;
+      }
+
+      .visit-button {
+        width: 100%;
+        text-align: center;
+        margin: var(--spacing-unit) 0;
+        padding: calc(var(--spacing-unit) * 0.8) calc(var(--spacing-unit) * 1.6);
+      }
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const sections = document.querySelectorAll('.section');
+      const mobileNav = document.createElement('nav');
+      mobileNav.className = 'mobile-nav';
+      document.body.appendChild(mobileNav);
+
+      sections.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.className = 'mobile-nav-dot';
+        if (index === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => {
+          sections[index].scrollIntoView({ behavior: 'smooth' });
+        });
+        mobileNav.appendChild(dot);
+      });
+
+      const observerCallback = (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const index = Array.from(sections).indexOf(entry.target);
+            document.querySelectorAll('.mobile-nav-dot').forEach((dot, i) => {
+              dot.classList.toggle('active', i === index);
+            });
+          }
+        });
+      };
+
+      const observer = new IntersectionObserver(observerCallback, {
+        threshold: 0.5
+      });
+
+      sections.forEach(section => observer.observe(section));
+    });
+  </script>
+</head>
+<body>
+  <nav class="side-nav">
+    <ul>
+      <li><a href="#obiettivo">Obiettivo</a></li>
+      <li><a href="#tecnologie">Tecnologie Utilizzate</a></li>
+      <li><a href="#sistema">Sistema JSON</a></li>
+      <li><a href="#screenshot">Screenshot</a></li>
+      <li><a href="#estensioni">Estensioni Future</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h1>Nunzia Ascolese Portfolio</h1>
+    
+    <section class="section">
+      <h2>Progetto: nunziaascolese.com</h2>
+      
+      <div class="description">
+        <p><strong>Cliente:</strong> Nunzia Ascolese</p>
+        <p><strong>Anno:</strong> 2025</p>
+        <p><strong>Ruolo:</strong> Sviluppo Frontend, UI/UX, Animazioni</p>
+
+        <h3 id="obiettivo">Obiettivo</h3>
+        <p>Creazione di un portfolio digitale con un sistema modulare per la gestione dei progetti artistici, in grado di garantire una facile scalabilità e aggiornabilità.</p>
+      </div>
+
+      <div class="description">
+        <h3 id="tecnologie">Tecnologie Utilizzate</h3>
+        <ul>
+          <li><strong>React</strong> con <strong>Vite</strong> per performance elevate e tempi di build ridotti</li>
+          <li><strong>Tailwind CSS</strong> per uno sviluppo rapido, scalabile e completamente responsive</li>
+          <li><strong>Framer Motion</strong> per animazioni fluide e controllate in ogni interazione</li>
+          <li><strong>Netlify</strong> come piattaforma di hosting e CI/CD</li>
+          <li><strong>Gestione dinamica dei contenuti</strong> tramite un file JSON e un template unificato</li>
+        </ul>
+      </div>
+
+      <div class="description">
+        <h3 id="sistema">Gestione dei progetti tramite JSON e Template</h3>
+        <p>Il sito utilizza un sistema basato su un template dinamico, alimentato da un file JSON contenente i dati di ciascuna opera. Questo approccio permette di separare la logica dei contenuti dalla struttura del sito, garantendo maggiore flessibilità e semplificando la gestione dei progetti.</p>
+
+        <h4>Funzionamento</h4>
+        <p>Ogni pagina di progetto viene generata automaticamente recuperando i dati dal file JSON, che include informazioni come:</p>
+        <ul>
+          <li>Nome del progetto</li>
+          <li>Descrizione</li>
+          <li>Anno e luogo di realizzazione</li>
+          <li>Materiali utilizzati</li>
+          <li>Curatori ed eventi associati</li>
+          <li>Immagini e media collegati</li>
+        </ul>
+        <p>I dati vengono caricati tramite Fetch API e iniettati nel template React, evitando la necessità di creare manualmente ogni pagina.</p>
+
+        <h4>Vantaggi del sistema basato su JSON</h4>
+        <ul>
+          <li><strong>Gestione centralizzata:</strong> Tutti i progetti sono definiti in un unico file JSON</li>
+          <li><strong>Scalabilità:</strong> Aggiungere nuovi progetti richiede solo la modifica del file JSON</li>
+          <li><strong>Uniformità grafica:</strong> Il template assicura coerenza tra tutte le pagine delle opere</li>
+          <li><strong>Efficienza:</strong> Le modifiche ai contenuti non richiedono la rigenerazione manuale delle pagine</li>
+        </ul>
+      </div>
+
+      <div class="description">
+        <h3 id="screenshot">Screenshot del progetto</h3>
+        <div class="gallery">
+          <figure>
+            <img src="https://res.cloudinary.com/dwcqqyaym/image/upload/v1742524156/home_b6tjtt.webp" alt="Homepage di nunziaascolese.com" />
+            <figcaption>Homepage</figcaption>
+          </figure>
+          <figure>
+            <video controls width="100%" height="auto">
+              <source src="https://res.cloudinary.com/dwcqqyaym/video/upload/v1742524172/video_home_jxzemh.mp4" type="video/mp4">
+              Il tuo browser non supporta il tag video.
+            </video>
+            <figcaption>Demo del Sito</figcaption>
+          </figure>
+          <figure>
+            <img src="https://res.cloudinary.com/dwcqqyaym/image/upload/v1742524155/opere_desc_mvygi5.webp" alt="Pagina di dettaglio progetto" />
+            <figcaption>Pagina Dettaglio Progetto</figcaption>
+          </figure>
+          <figure>
+            <img src="https://res.cloudinary.com/dwcqqyaym/image/upload/v1742524157/chisono_ipv57a.webp" alt="Sezione Chi Sono" />
+            <figcaption>Sezione Chi Sono</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="description">
+        <h3 id="estensioni">Estensioni Future</h3>
+        <ul>
+          <li>Integrazione con un CMS headless per una gestione ancora più dinamica</li>
+          <li>Aggiunta di un'interfaccia di amministrazione per aggiornare il file JSON senza interventi tecnici</li>
+          <li>Supporto per categorie e filtri avanzati dei progetti</li>
+          <li>Esperienze interattive tramite WebGL o contenuti 3D</li>
+          <li>Supporto multilingua (italiano / inglese)</li>
+          <li>Analytics privacy-friendly (es. Plausible)</li>
+        </ul>
+      </div>
+    </section>
+
+    <a href="https://nunziaascolese.com" class="visit-button" target="_blank">Visita il Sito</a>
+  </div>
+</body>
+</html>
